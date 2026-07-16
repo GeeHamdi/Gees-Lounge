@@ -1,0 +1,735 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta
+    name="description"
+    content="An accessible essay on why generative AI can sound intelligent without possessing human understanding, consciousness, or lived experience."
+  />
+
+  <title>The Ghost in the Code | Gee's Lounge</title>
+
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* ARTICLE PAGE — SELF-CONTAINED STYLES */
+
+    .article-page {
+      width: min(920px, calc(100% - 40px));
+      margin: 55px auto 80px;
+      padding: 0;
+    }
+
+    .article-hero {
+      padding: 55px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(139, 92, 246, 0.28),
+          rgba(255, 255, 255, 0.08)
+        );
+
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 30px;
+
+      backdrop-filter: blur(14px);
+
+      box-shadow:
+        0 22px 60px rgba(10, 2, 25, 0.25);
+    }
+
+    .article-label {
+      margin: 0 0 13px;
+
+      color: #c084fc;
+
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      font-weight: bold;
+
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .article-hero h1 {
+      max-width: 850px;
+      margin: 0 0 24px;
+
+      font-size: clamp(45px, 7vw, 75px);
+      line-height: 1.04;
+    }
+
+    .article-introduction {
+      max-width: 760px;
+      margin: 0 0 25px;
+
+      color: #e9d5ff;
+
+      font-size: 21px;
+      line-height: 1.7;
+    }
+
+    .article-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .article-meta span {
+      display: inline-block;
+
+      padding: 8px 13px;
+
+      background: rgba(255, 255, 255, 0.09);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 999px;
+
+      color: #e9d5ff;
+
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .article-body {
+      width: min(790px, 100%);
+      margin: 80px auto 0;
+    }
+
+    .article-body p {
+      margin: 0 0 27px;
+
+      color: #eee4f7;
+
+      font-size: 19px;
+      line-height: 1.9;
+    }
+
+    .article-body p:first-child::first-letter {
+      float: left;
+
+      margin: 10px 10px 0 0;
+
+      color: #d8b4fe;
+
+      font-size: 72px;
+      line-height: 0.75;
+    }
+
+    .article-body em {
+      color: #f7efff;
+    }
+
+    .article-body blockquote {
+      margin: 42px 0;
+      padding: 30px 35px;
+
+      background: rgba(255, 255, 255, 0.08);
+      border-left: 4px solid #c084fc;
+      border-radius: 0 20px 20px 0;
+
+      color: #f3e8ff;
+
+      font-size: 22px;
+      font-style: italic;
+      line-height: 1.65;
+
+      backdrop-filter: blur(10px);
+    }
+
+    .article-conclusion {
+      margin-top: 60px;
+      padding: 38px;
+
+      background: rgba(139, 92, 246, 0.15);
+      border: 1px solid rgba(216, 180, 254, 0.22);
+      border-radius: 25px;
+
+      backdrop-filter: blur(10px);
+    }
+
+    .article-conclusion h2 {
+      margin: 0 0 20px;
+
+      color: #f7efff;
+
+      font-size: clamp(30px, 4vw, 42px);
+      line-height: 1.2;
+    }
+
+    .article-conclusion p {
+      margin-bottom: 0;
+    }
+
+    .references-section {
+      margin-top: 75px;
+      padding-top: 40px;
+
+      border-top: 1px solid rgba(255, 255, 255, 0.17);
+    }
+
+    .references-section h2 {
+      margin: 0 0 27px;
+
+      font-size: 36px;
+    }
+
+    .reference-entry {
+      margin: 0 0 20px;
+
+      color: #e9d5ff;
+
+      font-size: 16px;
+      line-height: 1.7;
+
+      padding-left: 35px;
+      text-indent: -35px;
+    }
+
+    .article-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+
+      margin-top: 65px;
+    }
+
+    .article-action-button {
+      display: inline-block;
+
+      padding: 13px 22px;
+
+      border-radius: 999px;
+
+      background: #8b5cf6;
+      color: #ffffff;
+
+      text-decoration: none;
+
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+
+      transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    .article-action-button:hover {
+      background: #7c3aed;
+      transform: translateY(-2px);
+    }
+
+    .article-secondary-button {
+      display: inline-block;
+
+      padding: 12px 21px;
+
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 999px;
+
+      color: #e9d5ff;
+
+      text-decoration: none;
+
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+
+      transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    .article-secondary-button:hover {
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateY(-2px);
+    }
+
+    .article-back-link {
+      display: inline-block;
+
+      margin-top: 55px;
+
+      color: #d8b4fe;
+
+      text-decoration: none;
+
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+    }
+
+    .article-back-link:hover {
+      color: #c084fc;
+    }
+
+    .reading-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 9999;
+
+      width: 0;
+      height: 4px;
+
+      background: #c084fc;
+    }
+
+    body.light-mode .article-hero,
+    body.light-mode .article-conclusion,
+    body.light-mode .article-body blockquote {
+      background: rgba(255, 255, 255, 0.78);
+    }
+
+    body.light-mode .article-introduction,
+    body.light-mode .article-meta span,
+    body.light-mode .article-body p,
+    body.light-mode .reference-entry {
+      color: #3b0764;
+    }
+
+    body.light-mode .article-body em,
+    body.light-mode .article-conclusion h2 {
+      color: #2e1065;
+    }
+
+    body.light-mode .article-body blockquote {
+      color: #3b0764;
+    }
+
+    body.light-mode .article-secondary-button {
+      color: #3b0764;
+      border-color: rgba(59, 7, 100, 0.25);
+    }
+
+    @media (max-width: 650px) {
+      .article-page {
+        width: calc(100% - 28px);
+        margin-top: 35px;
+      }
+
+      .article-hero {
+        padding: 38px 27px;
+      }
+
+      .article-hero h1 {
+        font-size: 46px;
+      }
+
+      .article-body {
+        margin-top: 55px;
+      }
+
+      .article-body p {
+        font-size: 18px;
+        line-height: 1.8;
+      }
+
+      .article-body p:first-child::first-letter {
+        font-size: 58px;
+      }
+
+      .article-body blockquote {
+        padding: 25px;
+        font-size: 20px;
+      }
+
+      .article-conclusion {
+        padding: 29px;
+      }
+
+      .article-actions {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div
+    class="reading-progress"
+    id="readingProgress"
+    aria-hidden="true"
+  ></div>
+
+  <header class="site-header">
+    <h1 class="logo">Gee's Lounge</h1>
+
+    <button
+      class="menu-btn"
+      type="button"
+      aria-label="Open navigation menu"
+      onclick="toggleMenu()"
+    >
+      ☰
+    </button>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="blog.html" class="active">The Journal</a>
+      <a href="books.html">Reading Room</a>
+      <a href="contact.html">Contact</a>
+
+      <button
+        class="toggle-btn"
+        type="button"
+        aria-label="Switch colour theme"
+        onclick="toggleTheme()"
+      >
+        ☾
+      </button>
+    </nav>
+  </header>
+
+  <main class="article-page">
+
+    <article>
+
+      <header class="article-hero">
+        <p class="article-label">
+          Artificial Intelligence · Cognition
+        </p>
+
+        <h1>
+          The Ghost in the Code
+        </h1>
+
+        <p class="article-introduction">
+          Why generative AI can sound intelligent, persuasive, and even
+          thoughtful without possessing human understanding, consciousness,
+          or lived experience.
+        </p>
+
+        <div class="article-meta">
+          <span>By Gee Hamdi</span>
+          <span>12-minute read</span>
+          <span>Artificial Intelligence</span>
+        </div>
+      </header>
+
+
+      <div class="article-body">
+
+        <p>
+          If something speaks fluently enough, we instinctively assume there is
+          someone speaking behind the words. That assumption has served humanity
+          remarkably well for thousands of years. Every conversation we have
+          ever had has been with another conscious mind. Every sentence implied
+          an intention, every answer suggested understanding, and every story
+          emerged from lived experience. Language was never merely sound or
+          symbols; it was evidence that another person was present.
+        </p>
+
+        <p>
+          Then came large language models.
+        </p>
+
+        <p>
+          For the first time in history, millions of people now hold
+          conversations with systems that produce remarkably coherent language
+          without possessing experiences, beliefs, memories in the human sense,
+          or any awareness that a conversation is taking place. This is not
+          simply a technological achievement. It is also a psychological event,
+          because it forces us to confront an uncomfortable possibility:
+          perhaps human beings are far too willing to mistake fluent language
+          for genuine thought.
+        </p>
+
+        <p>
+          The more time people spend with systems such as ChatGPT, Claude,
+          Gemini, or Copilot, the easier it becomes to forget what these systems
+          actually are. We begin asking questions such as,
+          <em>“Why did the AI decide that?”</em> or
+          <em>“It understands what I mean.”</em> The language itself quietly
+          changes. Before long, we are describing statistical prediction as
+          intention and pattern matching as reasoning. We stop interacting with
+          software and begin interacting with an imagined mind.
+        </p>
+
+        <p>
+          This tendency is not new. Human beings apologise to tables after
+          walking into them, shout at computers that refuse to cooperate, and
+          occasionally thank navigation systems for finding a better route. We
+          are natural anthropomorphisers. Reeves and Nass (1996) demonstrated
+          that people routinely apply social rules to computers even while
+          knowing perfectly well that no person is inside the machine.
+        </p>
+
+        <p>
+          Large language models intensify this tendency because they do not
+          merely respond. They converse. They apologise, reassure, joke, mirror
+          tone, and adapt their language so convincingly that the boundary
+          between simulation and understanding begins to blur.
+        </p>
+
+        <blockquote>
+          Fluency is persuasive because, throughout human history, fluent
+          language has almost always indicated the presence of a mind.
+        </blockquote>
+
+        <p>
+          None of this diminishes what these systems accomplish. Their
+          achievements are extraordinary. They summarise complex documents,
+          assist programmers, generate examples, explain difficult concepts,
+          produce drafts, and often communicate with remarkable clarity. Yet
+          extraordinary performance should not tempt us into careless
+          descriptions. The ability to generate convincing language is not
+          identical to understanding that language.
+        </p>
+
+        <p>
+          Imagine asking someone to arrange millions of coloured tiles into the
+          shape of a sunset. The finished mosaic may be breathtaking, yet the
+          tiles themselves have no idea what a sunset is. In a similar way,
+          contemporary language models organise relationships among linguistic
+          patterns with astonishing sophistication, but they do not experience
+          grief, curiosity, embarrassment, nostalgia, hunger, pain, or wonder.
+        </p>
+
+        <p>
+          They know that the word <em>fire</em> frequently appears near words
+          such as <em>heat</em>, <em>smoke</em>, and <em>burn</em>, but they
+          have never felt warmth. They can describe heartbreak in beautiful
+          prose while remaining entirely untouched by loss. They can discuss
+          fear without ever being afraid.
+        </p>
+
+        <p>
+          The distinction matters because meaning, for human beings, is not
+          detached from experience. Words are connected to bodies, memories,
+          places, relationships, sensations, histories, and consequences. The
+          word <em>home</em> is not merely a linguistic token. It may refer to a
+          building, a person, a smell, a loss, a childhood, or somewhere one
+          never wishes to return.
+        </p>
+
+        <p>
+          John Searle's (1980) Chinese Room thought experiment remains
+          surprisingly relevant. Imagine a person locked inside a room who
+          follows an enormous rulebook for manipulating Chinese symbols. People
+          outside the room submit questions in Chinese and receive perfectly
+          appropriate answers. To them, it appears that the person inside
+          understands the language. Yet the person may understand nothing at
+          all. They are following rules for arranging symbols.
+        </p>
+
+        <p>
+          Whether one accepts every aspect of Searle's argument is less
+          important here than the distinction it reveals: producing
+          meaningful-looking responses is not automatically the same as
+          possessing semantic understanding. Modern language models have made
+          that old philosophical question feel considerably less theoretical.
+        </p>
+
+        <p>
+          Perhaps nowhere is the distinction more visible than in AI
+          hallucinations. The word <em>hallucination</em> is itself somewhat
+          misleading because it suggests perception. A more accurate phrase may
+          be <em>confident fabrication</em>.
+        </p>
+
+        <p>
+          Ask a language model for a citation, and it may occasionally produce
+          the name of a plausible journal, a convincing title, a realistic
+          volume number, and an article that has never existed. Ask it about a
+          court case, and it may fabricate quotations in perfect legal prose.
+          Ask for a historical detail, and it may provide a polished answer that
+          feels true because every sentence is shaped like the kind of sentence
+          truth usually arrives in.
+        </p>
+
+        <p>
+          These errors are revealing. A person who understands the world usually
+          distinguishes between memory, uncertainty, assumption, and invention,
+          though humans are hardly flawless in this respect. A language model
+          predicts what sequence of words is likely to follow a prompt.
+          Accuracy is often the result, but accuracy is not the underlying
+          mechanism.
+        </p>
+
+        <p>
+          This is why I find the phrase <em>artificial intelligence</em> both
+          useful and misleading. It captures the remarkable capabilities of
+          these systems, yet it also encourages people to imagine forms of
+          cognition that may not be present. Intelligence is not a single
+          quality. Humans perceive, reason, remember, doubt, imagine, feel,
+          revise beliefs, and interact continuously with a physical and social
+          world.
+        </p>
+
+        <p>
+          Current language models are exceptionally capable linguistic systems.
+          That description is already impressive. We do not need to add
+          consciousness where no evidence of consciousness exists, or use the
+          language of intention simply because the output feels intentional.
+        </p>
+
+        <p>
+          Ironically, this misunderstanding reveals something about humans as
+          much as it does about machines. We have always used language as
+          evidence of mind because, until recently, that assumption was almost
+          always correct. Our brains developed in a world where coherent words
+          reliably pointed toward conscious speakers.
+        </p>
+
+        <p>
+          Large language models challenge that shortcut. The illusion is
+          convincing not because the machine is secretly pretending to be
+          human, but because human beings are deeply responsive to language
+          that behaves as though a speaker exists behind it.
+        </p>
+
+        <p>
+          None of this means these technologies should be feared, rejected, or
+          dismissed. I use them myself. They can be powerful collaborators in
+          research, teaching, brainstorming, editing, planning, and learning.
+          The danger lies in allowing fluency to replace critical thinking.
+        </p>
+
+        <p>
+          A polished answer still requires verification. A confident
+          explanation still requires evidence. A moving paragraph still
+          requires judgment. The smoother the language becomes, the more
+          important this responsibility may be, because style can disguise
+          uncertainty remarkably well.
+        </p>
+
+        <section class="article-conclusion">
+          <h2>The real ghost is ours</h2>
+
+          <p>
+            Perhaps the ghost in the code is not consciousness hiding inside
+            the machine. It is our own tendency to project consciousness where
+            persuasive language exists. The machine has not suddenly become
+            human. We have simply encountered language detached from the kind
+            of mind we have always assumed must produce it.
+          </p>
+
+          <p>
+            That does not make generative AI less remarkable. It makes our
+            responsibility clearer. We can value its capabilities, use it
+            creatively, and learn from it without confusing simulation with
+            experience, prediction with comprehension, or linguistic fluency
+            with a conscious self.
+          </p>
+        </section>
+
+
+        <section class="references-section">
+          <h2>References</h2>
+
+          <p class="reference-entry">
+            Bender, E. M., Gebru, T., McMillan-Major, A., &amp; Shmitchell, S.
+            (2021). On the dangers of stochastic parrots: Can language models be
+            too big? <em>Proceedings of the 2021 ACM Conference on Fairness,
+            Accountability, and Transparency</em>, 610–623.
+          </p>
+
+          <p class="reference-entry">
+            Kahneman, D. (2011). <em>Thinking, fast and slow</em>. Farrar,
+            Straus and Giroux.
+          </p>
+
+          <p class="reference-entry">
+            Reeves, B., &amp; Nass, C. (1996). <em>The media equation: How people
+            treat computers, television, and new media like real people and
+            places</em>. Cambridge University Press.
+          </p>
+
+          <p class="reference-entry">
+            Searle, J. R. (1980). Minds, brains, and programs.
+            <em>Behavioral and Brain Sciences, 3</em>(3), 417–457.
+          </p>
+        </section>
+
+
+        <div class="article-actions">
+          <a href="blog.html" class="article-action-button">
+            Return to The Journal
+          </a>
+
+          <a href="contact.html" class="article-secondary-button">
+            Continue the Conversation
+          </a>
+        </div>
+
+        <a href="index.html" class="article-back-link">
+          ← Back to the Lounge
+        </a>
+
+      </div>
+
+    </article>
+
+  </main>
+
+  <footer>
+    <p>© 2026 Gee's Lounge</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const navigation = document.getElementById("navLinks");
+
+      if (navigation) {
+        navigation.classList.toggle("active");
+      }
+    }
+
+    function toggleTheme() {
+      document.body.classList.toggle("light-mode");
+
+      const currentTheme =
+        document.body.classList.contains("light-mode")
+          ? "light"
+          : "dark";
+
+      localStorage.setItem("geeLoungeTheme", currentTheme);
+    }
+
+    function updateReadingProgress() {
+      const progressBar =
+        document.getElementById("readingProgress");
+
+      if (!progressBar) {
+        return;
+      }
+
+      const documentHeight =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
+
+      const scrollPosition =
+        document.documentElement.scrollTop ||
+        document.body.scrollTop;
+
+      const progress =
+        documentHeight > 0
+          ? (scrollPosition / documentHeight) * 100
+          : 0;
+
+      progressBar.style.width = progress + "%";
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const savedTheme =
+        localStorage.getItem("geeLoungeTheme");
+
+      if (savedTheme === "light") {
+        document.body.classList.add("light-mode");
+      }
+
+      updateReadingProgress();
+    });
+
+    window.addEventListener("scroll", updateReadingProgress);
+  </script>
+
+</body>
+</html>
+```

@@ -1,0 +1,716 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <meta
+    name="description"
+    content="Why intelligent people may remain in toxic relationships, despite recognising manipulation, unhealthy patterns, and emotional harm."
+  />
+
+  <title>Why Smart People Stay in Toxic Relationships | Gee's Lounge</title>
+
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* ARTICLE PAGE — SELF-CONTAINED STYLES */
+
+    .article-page {
+      width: min(920px, calc(100% - 40px));
+      margin: 55px auto 80px;
+      padding: 0;
+    }
+
+    /* ARTICLE HERO */
+
+    .article-hero {
+      padding: 55px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(139, 92, 246, 0.28),
+          rgba(255, 255, 255, 0.08)
+        );
+
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 30px;
+
+      backdrop-filter: blur(14px);
+
+      box-shadow:
+        0 22px 60px rgba(10, 2, 25, 0.25);
+    }
+
+    .article-label {
+      margin: 0 0 13px;
+
+      color: #c084fc;
+
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      font-weight: bold;
+
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .article-hero h1 {
+      max-width: 850px;
+      margin: 0 0 24px;
+
+      font-size: clamp(45px, 7vw, 75px);
+      line-height: 1.04;
+    }
+
+    .article-introduction {
+      max-width: 760px;
+      margin: 0 0 25px;
+
+      color: #e9d5ff;
+
+      font-size: 21px;
+      line-height: 1.7;
+    }
+
+    .article-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .article-meta span {
+      display: inline-block;
+
+      padding: 8px 13px;
+
+      background: rgba(255, 255, 255, 0.09);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 999px;
+
+      color: #e9d5ff;
+
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    /* ARTICLE BODY */
+
+    .article-body {
+      width: min(790px, 100%);
+      margin: 80px auto 0;
+    }
+
+    .article-body p {
+      margin: 0 0 27px;
+
+      color: #eee4f7;
+
+      font-size: 19px;
+      line-height: 1.9;
+    }
+
+    .article-body p:first-child::first-letter {
+      float: left;
+
+      margin: 10px 10px 0 0;
+
+      color: #d8b4fe;
+
+      font-size: 72px;
+      line-height: 0.75;
+    }
+
+    .article-body em {
+      color: #f7efff;
+    }
+
+    .article-body blockquote {
+      margin: 42px 0;
+      padding: 30px 35px;
+
+      background: rgba(255, 255, 255, 0.08);
+      border-left: 4px solid #c084fc;
+      border-radius: 0 20px 20px 0;
+
+      color: #f3e8ff;
+
+      font-size: 22px;
+      font-style: italic;
+      line-height: 1.65;
+
+      backdrop-filter: blur(10px);
+    }
+
+    /* CONCLUSION */
+
+    .article-conclusion {
+      margin-top: 60px;
+      padding: 38px;
+
+      background: rgba(139, 92, 246, 0.15);
+      border: 1px solid rgba(216, 180, 254, 0.22);
+      border-radius: 25px;
+
+      backdrop-filter: blur(10px);
+    }
+
+    .article-conclusion h2 {
+      margin: 0 0 20px;
+
+      color: #f7efff;
+
+      font-size: clamp(30px, 4vw, 42px);
+      line-height: 1.2;
+    }
+
+    .article-conclusion p {
+      margin-bottom: 0;
+    }
+
+    /* REFERENCES */
+
+    .references-section {
+      margin-top: 75px;
+      padding-top: 40px;
+
+      border-top: 1px solid rgba(255, 255, 255, 0.17);
+    }
+
+    .references-section h2 {
+      margin: 0 0 27px;
+
+      font-size: 36px;
+    }
+
+    .reference-entry {
+      margin: 0 0 20px;
+
+      color: #e9d5ff;
+
+      font-size: 16px;
+      line-height: 1.7;
+
+      padding-left: 35px;
+      text-indent: -35px;
+    }
+
+    /* ARTICLE FOOTER */
+
+    .article-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+
+      margin-top: 65px;
+    }
+
+    .article-action-button {
+      display: inline-block;
+
+      padding: 13px 22px;
+
+      border-radius: 999px;
+
+      background: #8b5cf6;
+      color: #ffffff;
+
+      text-decoration: none;
+
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+
+      transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    .article-action-button:hover {
+      background: #7c3aed;
+      transform: translateY(-2px);
+    }
+
+    .article-secondary-button {
+      display: inline-block;
+
+      padding: 12px 21px;
+
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 999px;
+
+      color: #e9d5ff;
+
+      text-decoration: none;
+
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+
+      transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    .article-secondary-button:hover {
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateY(-2px);
+    }
+
+    .article-back-link {
+      display: inline-block;
+
+      margin-top: 55px;
+
+      color: #d8b4fe;
+
+      text-decoration: none;
+
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+    }
+
+    .article-back-link:hover {
+      color: #c084fc;
+    }
+
+    /* READING PROGRESS BAR */
+
+    .reading-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 9999;
+
+      width: 0;
+      height: 4px;
+
+      background: #c084fc;
+    }
+
+    /* LIGHT MODE */
+
+    body.light-mode .article-hero,
+    body.light-mode .article-conclusion,
+    body.light-mode .article-body blockquote {
+      background: rgba(255, 255, 255, 0.78);
+    }
+
+    body.light-mode .article-introduction,
+    body.light-mode .article-meta span,
+    body.light-mode .article-body p,
+    body.light-mode .reference-entry {
+      color: #3b0764;
+    }
+
+    body.light-mode .article-body em,
+    body.light-mode .article-conclusion h2 {
+      color: #2e1065;
+    }
+
+    body.light-mode .article-body blockquote {
+      color: #3b0764;
+    }
+
+    body.light-mode .article-secondary-button {
+      color: #3b0764;
+      border-color: rgba(59, 7, 100, 0.25);
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 650px) {
+      .article-page {
+        width: calc(100% - 28px);
+        margin-top: 35px;
+      }
+
+      .article-hero {
+        padding: 38px 27px;
+      }
+
+      .article-hero h1 {
+        font-size: 46px;
+      }
+
+      .article-body {
+        margin-top: 55px;
+      }
+
+      .article-body p {
+        font-size: 18px;
+        line-height: 1.8;
+      }
+
+      .article-body p:first-child::first-letter {
+        font-size: 58px;
+      }
+
+      .article-body blockquote {
+        padding: 25px;
+        font-size: 20px;
+      }
+
+      .article-conclusion {
+        padding: 29px;
+      }
+
+      .article-actions {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div
+    class="reading-progress"
+    id="readingProgress"
+    aria-hidden="true"
+  ></div>
+
+  <header class="site-header">
+    <h1 class="logo">Gee's Lounge</h1>
+
+    <button
+      class="menu-btn"
+      type="button"
+      aria-label="Open navigation menu"
+      onclick="toggleMenu()"
+    >
+      ☰
+    </button>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="blog.html" class="active">The Journal</a>
+      <a href="books.html">Reading Room</a>
+      <a href="contact.html">Contact</a>
+
+      <button
+        class="toggle-btn"
+        type="button"
+        aria-label="Switch colour theme"
+        onclick="toggleTheme()"
+      >
+        ☾
+      </button>
+    </nav>
+  </header>
+
+  <main class="article-page">
+
+    <article>
+
+      <header class="article-hero">
+        <p class="article-label">
+          Psychology · Relationships
+        </p>
+
+        <h1>
+          Why Smart People Stay in Toxic Relationships
+        </h1>
+
+        <p class="article-introduction">
+          Intelligence may help us analyse behaviour, recognise manipulation,
+          and identify unhealthy patterns. It does not make us immune to
+          attachment, hope, fear, or the complicated realities of leaving.
+        </p>
+
+        <div class="article-meta">
+          <span>By Gee Hamdi</span>
+          <span>6-minute read</span>
+          <span>Psychology</span>
+        </div>
+      </header>
+
+
+      <div class="article-body">
+
+        <p>
+          There is a particular kind of question people love asking after a
+          relationship ends, usually accompanied by equal parts disbelief and
+          hindsight: <em>“How could someone so intelligent stay with a person
+          like that?”</em> The question is understandable, but it rests on an
+          assumption that has always puzzled me—the assumption that intelligence
+          is somehow a vaccine against emotional pain.
+        </p>
+
+        <p>
+          It is an attractive belief because it reassures us. If intelligence
+          protects people from manipulation, then perhaps the world is more
+          predictable than it really is. We tell ourselves that educated people
+          should recognise red flags, that psychologists should never date
+          narcissists, that therapists must have flawless relationships, and
+          that anyone capable of analysing a research paper should also be
+          capable of analysing their own emotions with equal objectivity.
+          Reality is considerably less cooperative.
+        </p>
+
+        <p>
+          Some of the brightest people I have known have remained in
+          relationships that slowly eroded their confidence, their sense of
+          self, and sometimes even their ability to trust their own judgement.
+          These were not naïve individuals. Many recognised the manipulation
+          long before they left. Some could explain every psychological
+          mechanism involved—gaslighting, intermittent reinforcement, trauma
+          bonding—better than the people discussing them online. Yet knowing
+          the name of a pattern does not automatically give someone the
+          emotional, social, or practical freedom to leave it.
+        </p>
+
+        <p>
+          Knowledge alone rarely determines behaviour. If it did,
+          psychologists would never experience anxiety, physicians would never
+          smoke, and linguists would never misunderstand one another. We often
+          know exactly what would be good for us while continuing to do
+          something else entirely. Human beings are inconvenient that way.
+        </p>
+
+        <p>
+          Psychology has long recognised that people do not make decisions
+          through reason alone. Daniel Kahneman’s distinction between fast,
+          intuitive thought and slower, analytical reasoning reminds us that
+          decisions emerge from a constant negotiation between feeling and
+          reflection (Kahneman, 2011). Attachment theorists have similarly
+          argued that early emotional experiences shape what feels familiar in
+          adulthood, even when what is familiar is not particularly healthy
+          (Bowlby, 1988).
+        </p>
+
+        <p>
+          This helps explain why one person may interpret unpredictability as a
+          warning while another experiences it as passion. Emotional distance
+          may feel unacceptable to someone raised with consistent care, but
+          strangely familiar to someone who learned early that affection had to
+          be earned. Familiarity is not the same as safety, but the nervous
+          system does not always appreciate the distinction.
+        </p>
+
+        <p>
+          Hope also plays a larger role than outsiders often recognise. Toxic
+          relationships rarely begin with an announcement. Few people introduce
+          themselves by saying, <em>“Hello, I intend to undermine your
+          confidence gradually and make every disagreement feel like a criminal
+          investigation.”</em> They may begin with warmth, attentiveness,
+          humour, affection, and the powerful feeling of finally being seen.
+        </p>
+
+        <p>
+          When the relationship later changes, the person staying is often not
+          trying to preserve the relationship as it currently exists. They are
+          trying to recover the relationship they remember from the beginning.
+          They are waiting for the affectionate version to return, especially
+          because it does return occasionally. A thoughtful apology, a peaceful
+          weekend, or a sudden display of tenderness can make the entire pattern
+          appear temporary.
+        </p>
+
+        <blockquote>
+          Many people do not remain because they cannot see the pattern. They
+          remain because the exceptions keep persuading them that the pattern
+          might finally change.
+        </blockquote>
+
+        <p>
+          Communication creates another trap. Having spent years teaching
+          communication, I have repeatedly encountered the belief that every
+          interpersonal problem can eventually be solved through better
+          wording. People rewrite messages, rehearse conversations in the
+          shower, soften their tone, become firmer, provide more examples, and
+          search endlessly for the one sentence that will finally make the
+          other person understand.
+        </p>
+
+        <p>
+          Consider the partner who says, <em>“I have explained ten times that
+          disappearing for three days without a message makes me anxious.”</em>
+          The eleventh explanation is unlikely to contain the magical verb that
+          changes everything. The difficulty may no longer be one of
+          comprehension. The other person may understand perfectly well and
+          simply not assign the same importance to the distress being caused.
+        </p>
+
+        <p>
+          Watzlawick, Beavin, and Jackson (1967) argued that communication is
+          not merely the transfer of information; it also defines and negotiates
+          relationships. A repeated refusal to acknowledge a clearly expressed
+          need communicates something, even when no direct statement is made.
+          Silence, dismissal, delay, mockery, and strategic confusion can all
+          function as messages.
+        </p>
+
+        <p>
+          Intelligent people may be particularly vulnerable to one additional
+          problem: they are very good at producing explanations. Every hurtful
+          action can be connected to childhood trauma, professional pressure,
+          insecurity, fear of intimacy, anxiety, or emotional immaturity.
+          Sometimes those explanations are accurate. They may even help us feel
+          compassion.
+        </p>
+
+        <p>
+          But an explanation does not cancel an effect. A person may shout
+          because shouting was normal in their childhood. That history matters.
+          It does not make the shouting harmless. A partner may withdraw because
+          intimacy terrifies them. That fear deserves understanding. It does not
+          mean the other person must live indefinitely in emotional starvation.
+        </p>
+
+        <p>
+          This is why I have become cautious of the sentence,
+          <em>“They are not really like that.”</em> What does “really” mean in
+          this context? Are they the affectionate person seen during good weeks,
+          or the cruel person who appears during conflict? Relationships are not
+          lived inside isolated moments. They are lived inside patterns.
+        </p>
+
+        <p>
+          None of this means leaving is simple. A relationship may involve
+          children, financial dependence, housing, family pressure, religious
+          or cultural expectations, loneliness, social shame, shared history,
+          disability, immigration status, or fear of retaliation. Someone may
+          also be so psychologically exhausted that the task of beginning again
+          feels larger than the pain of remaining.
+        </p>
+
+        <p>
+          Outsiders often ask, <em>“Why did she stay?”</em> because the question
+          allows them to examine the person who remained rather than the
+          conditions that made remaining feel necessary. A better question is:
+          <em>“What made leaving so difficult?”</em> That version is less
+          judgmental and considerably more useful.
+        </p>
+
+        <section class="article-conclusion">
+          <h2>Intelligence was never the deciding factor</h2>
+
+          <p>
+            Intelligent people remain in toxic relationships for many of the
+            same reasons anyone does: attachment, hope, fear, habit, practical
+            dependence, loyalty, shame, and the belief that one more honest
+            conversation may finally repair what has repeatedly broken.
+            Intelligence may help someone describe the situation more
+            accurately. It cannot make the emotional consequences disappear.
+          </p>
+
+          <p>
+            Perhaps the lesson is not that intelligent people should know
+            better. It is that human relationships are never governed by
+            knowledge alone. Understanding a harmful pattern can be the
+            beginning of change, but it is not the same as having the resources,
+            readiness, and support required to leave it.
+          </p>
+        </section>
+
+
+        <section class="references-section">
+          <h2>References</h2>
+
+          <p class="reference-entry">
+            Bowlby, J. (1988). <em>A secure base: Parent-child attachment and
+            healthy human development</em>. Basic Books.
+          </p>
+
+          <p class="reference-entry">
+            Kahneman, D. (2011). <em>Thinking, fast and slow</em>. Farrar,
+            Straus and Giroux.
+          </p>
+
+          <p class="reference-entry">
+            Watzlawick, P., Beavin, J. H., &amp; Jackson, D. D. (1967).
+            <em>Pragmatics of human communication: A study of interactional
+            patterns, pathologies, and paradoxes</em>. W. W. Norton.
+          </p>
+        </section>
+
+
+        <div class="article-actions">
+          <a href="blog.html" class="article-action-button">
+            Return to The Journal
+          </a>
+
+          <a href="contact.html" class="article-secondary-button">
+            Continue the Conversation
+          </a>
+        </div>
+
+        <a href="index.html" class="article-back-link">
+          ← Back to the Lounge
+        </a>
+
+      </div>
+
+    </article>
+
+  </main>
+
+  <footer>
+    <p>© 2026 Gee's Lounge</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const navigation = document.getElementById("navLinks");
+
+      if (navigation) {
+        navigation.classList.toggle("active");
+      }
+    }
+
+    function toggleTheme() {
+      document.body.classList.toggle("light-mode");
+
+      const currentTheme =
+        document.body.classList.contains("light-mode")
+          ? "light"
+          : "dark";
+
+      localStorage.setItem("geeLoungeTheme", currentTheme);
+    }
+
+    function updateReadingProgress() {
+      const progressBar =
+        document.getElementById("readingProgress");
+
+      if (!progressBar) {
+        return;
+      }
+
+      const documentHeight =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
+
+      const scrollPosition =
+        document.documentElement.scrollTop ||
+        document.body.scrollTop;
+
+      const progress =
+        documentHeight > 0
+          ? (scrollPosition / documentHeight) * 100
+          : 0;
+
+      progressBar.style.width = progress + "%";
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const savedTheme =
+        localStorage.getItem("geeLoungeTheme");
+
+      if (savedTheme === "light") {
+        document.body.classList.add("light-mode");
+      }
+
+      updateReadingProgress();
+    });
+
+    window.addEventListener("scroll", updateReadingProgress);
+  </script>
+
+</body>
+</html>
+```

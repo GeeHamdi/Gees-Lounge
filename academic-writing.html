@@ -1,0 +1,610 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Academic Writing &amp; Research | Gee's Lounge</title>
+
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* ACADEMIC WRITING PAGE — SELF-CONTAINED STYLES */
+
+    .academic-page {
+      width: min(1080px, calc(100% - 40px));
+      margin: 55px auto 80px;
+      padding: 0;
+    }
+
+    .academic-title-card {
+      width: 100%;
+      padding: 55px;
+      background:
+        linear-gradient(
+          135deg,
+          rgba(139, 92, 246, 0.28),
+          rgba(255, 255, 255, 0.08)
+        );
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 30px;
+      backdrop-filter: blur(14px);
+      box-shadow: 0 22px 60px rgba(10, 2, 25, 0.25);
+    }
+
+    .academic-label {
+      margin: 0 0 10px;
+      color: #c084fc;
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .academic-title-card h2 {
+      margin: 0 0 20px;
+      font-size: clamp(48px, 7vw, 82px);
+      line-height: 1.02;
+    }
+
+    .academic-subline {
+      max-width: 760px;
+      margin: 0;
+      color: #e9d5ff;
+      font-size: 21px;
+      line-height: 1.7;
+    }
+
+    .academic-audience {
+      margin: 85px 0;
+    }
+
+    .academic-audience h2,
+    .academic-slider-heading h2,
+    .academic-approach h2 {
+      margin: 0 0 30px;
+      font-size: clamp(38px, 5vw, 58px);
+      line-height: 1.12;
+    }
+
+    .academic-ticks {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .academic-tick {
+      display: flex;
+      gap: 15px;
+      align-items: flex-start;
+      margin: 0;
+      padding: 22px;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 18px;
+      color: #e9d5ff;
+      font-size: 18px;
+      line-height: 1.55;
+    }
+
+    .academic-tick-mark {
+      flex: 0 0 auto;
+      color: #c084fc;
+      font-family: Arial, sans-serif;
+      font-size: 23px;
+      font-weight: bold;
+      line-height: 1;
+    }
+
+    .academic-slider-section {
+      width: 100%;
+      margin: 95px 0;
+      overflow: hidden;
+    }
+
+    .academic-slider-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 30px;
+      margin-bottom: 30px;
+    }
+
+    .academic-slider-heading p {
+      margin: 0 0 8px;
+    }
+
+    .academic-slider-heading h2 {
+      margin-bottom: 0;
+    }
+
+    .academic-slider-buttons {
+      display: flex;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .academic-slider-buttons button {
+      width: 50px;
+      height: 50px;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      font-size: 23px;
+      cursor: pointer;
+      transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+    }
+
+    .academic-slider-buttons button:hover {
+      background: #8b5cf6;
+      transform: translateY(-2px);
+    }
+
+    .academic-slider-buttons button:focus-visible {
+      outline: 3px solid #c084fc;
+      outline-offset: 3px;
+    }
+
+    .academic-slider {
+      display: flex;
+      gap: 22px;
+      width: 100%;
+      overflow-x: auto;
+      overflow-y: hidden;
+      padding: 5px 5px 24px;
+      scroll-behavior: smooth;
+      scroll-snap-type: x mandatory;
+      overscroll-behavior-inline: contain;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .academic-slider::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .academic-slider::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+    }
+
+    .academic-slider::-webkit-scrollbar-thumb {
+      background: #8b5cf6;
+      border-radius: 20px;
+    }
+
+    .academic-slide-card {
+      flex: 0 0 310px;
+      width: 310px;
+      min-width: 310px;
+      min-height: 295px;
+      padding: 30px;
+      scroll-snap-align: start;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 24px;
+      backdrop-filter: blur(10px);
+    }
+
+    .academic-slide-number {
+      display: block;
+      margin-bottom: 34px;
+      color: #c084fc;
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    .academic-slide-card h3 {
+      margin: 0 0 15px;
+      color: #d8b4fe;
+      font-size: 28px;
+      line-height: 1.2;
+    }
+
+    .academic-slide-card p {
+      margin: 0;
+      color: #e9d5ff;
+      font-size: 18px;
+      line-height: 1.65;
+    }
+
+    .academic-approach {
+      margin: 95px 0 70px;
+    }
+
+    .academic-speech-bubble {
+      position: relative;
+      max-width: 850px;
+      padding: 40px;
+      background: #f3e8ff;
+      border-radius: 28px;
+      color: #3b0764;
+      box-shadow: 0 20px 55px rgba(10, 2, 25, 0.24);
+    }
+
+    .academic-speech-bubble::after {
+      content: "";
+      position: absolute;
+      left: 55px;
+      bottom: -24px;
+      width: 0;
+      height: 0;
+      border-top: 26px solid #f3e8ff;
+      border-right: 28px solid transparent;
+    }
+
+    .academic-speech-bubble p {
+      margin: 0 0 18px;
+      color: #3b0764;
+      font-size: 20px;
+      line-height: 1.7;
+    }
+
+    .academic-speech-bubble p:last-child {
+      margin-bottom: 0;
+    }
+
+    .academic-contact {
+      margin-top: 65px;
+    }
+
+    .academic-back-link {
+      display: inline-block;
+      margin-top: 65px;
+      color: #d8b4fe;
+      text-decoration: none;
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+    }
+
+    .academic-back-link:hover {
+      color: #c084fc;
+    }
+
+    body.light-mode .academic-title-card,
+    body.light-mode .academic-tick,
+    body.light-mode .academic-slide-card {
+      background: rgba(255, 255, 255, 0.78);
+    }
+
+    body.light-mode .academic-subline,
+    body.light-mode .academic-tick,
+    body.light-mode .academic-slide-card p {
+      color: #3b0764;
+    }
+
+    body.light-mode .academic-slider-buttons button {
+      color: #3b0764;
+      border-color: rgba(59, 7, 100, 0.25);
+    }
+
+    @media (max-width: 760px) {
+      .academic-page {
+        width: calc(100% - 28px);
+        margin-top: 35px;
+      }
+
+      .academic-title-card {
+        padding: 38px 27px;
+      }
+
+      .academic-title-card h2 {
+        font-size: 48px;
+      }
+
+      .academic-ticks {
+        grid-template-columns: 1fr;
+      }
+
+      .academic-slider-top {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .academic-slide-card {
+        flex-basis: 82vw;
+        width: 82vw;
+        min-width: 82vw;
+      }
+
+      .academic-speech-bubble {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="site-header">
+    <h1 class="logo">Gee's Lounge</h1>
+
+    <button
+      class="menu-btn"
+      type="button"
+      aria-label="Open navigation menu"
+      onclick="toggleMenu()"
+    >
+      ☰
+    </button>
+
+   <nav class="nav-links" id="navLinks">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="blog.html">The Journal</a>
+  <a href="books.html">Reading Room</a>
+  <a href="contact.html">Contact</a>
+
+  <button
+    class="toggle-btn"
+    type="button"
+    aria-label="Switch colour theme"
+    onclick="toggleTheme()"
+  >
+    ☾
+  </button>
+</nav>
+    </nav>
+  </header>
+
+  <main class="academic-page">
+
+    <section class="academic-title-card">
+      <p class="academic-label">Writing &amp; Research Services</p>
+
+      <h2>Academic Writing &amp; Research</h2>
+
+      <p class="academic-subline">
+        Develop clearer academic writing, stronger research design, and
+        well-structured scholarly work with confidence.
+      </p>
+    </section>
+
+    <section class="academic-audience">
+      <h2>Who is it for?</h2>
+
+      <div class="academic-ticks">
+
+        <p class="academic-tick">
+          <span class="academic-tick-mark">✓</span>
+          <span>
+            University students writing essays, research projects,
+            dissertations, or theses.
+          </span>
+        </p>
+
+        <p class="academic-tick">
+          <span class="academic-tick-mark">✓</span>
+          <span>
+            Master's and doctoral researchers developing or refining
+            academic studies.
+          </span>
+        </p>
+
+        <p class="academic-tick">
+          <span class="academic-tick-mark">✓</span>
+          <span>
+            Academics preparing journal articles, book chapters, or
+            conference papers.
+          </span>
+        </p>
+
+        <p class="academic-tick">
+          <span class="academic-tick-mark">✓</span>
+          <span>
+            Professionals who need to organise, analyse, and present
+            complex ideas clearly.
+          </span>
+        </p>
+
+      </div>
+    </section>
+
+    <section class="academic-slider-section">
+
+      <div class="academic-slider-top">
+
+        <div class="academic-slider-heading">
+          <p class="academic-label">Skills &amp; Support</p>
+          <h2>What we can work on</h2>
+        </div>
+
+        <div class="academic-slider-buttons">
+          <button
+            type="button"
+            id="previousAcademicSlide"
+            aria-label="Show previous item"
+          >
+            ←
+          </button>
+
+          <button
+            type="button"
+            id="nextAcademicSlide"
+            aria-label="Show next item"
+          >
+            →
+          </button>
+        </div>
+
+      </div>
+
+      <div class="academic-slider" id="academicSlider">
+
+        <article class="academic-slide-card">
+          <span class="academic-slide-number">01</span>
+
+          <h3>Academic Writing</h3>
+
+          <p>
+            Improve structure, clarity, coherence, argumentation, academic
+            tone, and paragraph development.
+          </p>
+        </article>
+
+        <article class="academic-slide-card">
+          <span class="academic-slide-number">02</span>
+
+          <h3>Research Design</h3>
+
+          <p>
+            Develop focused research questions, suitable methods, sampling
+            plans, and data-collection procedures.
+          </p>
+        </article>
+
+        <article class="academic-slide-card">
+          <span class="academic-slide-number">03</span>
+
+          <h3>Literature Reviews</h3>
+
+          <p>
+            Move beyond summary by comparing studies, identifying gaps,
+            evaluating evidence, and building a clear argument.
+          </p>
+        </article>
+
+        <article class="academic-slide-card">
+          <span class="academic-slide-number">04</span>
+
+          <h3>Journal Articles</h3>
+
+          <p>
+            Structure manuscripts, refine arguments, respond to reviewers,
+            and prepare work for academic publication.
+          </p>
+        </article>
+
+        <article class="academic-slide-card">
+          <span class="academic-slide-number">05</span>
+
+          <h3>Editing &amp; Feedback</h3>
+
+          <p>
+            Receive focused feedback on organisation, logic, language,
+            readability, tone, and academic conventions.
+          </p>
+        </article>
+
+        <article class="academic-slide-card">
+          <span class="academic-slide-number">06</span>
+
+          <h3>Research Presentations</h3>
+
+          <p>
+            Turn complex research into clear conference presentations,
+            thesis defences, posters, and oral explanations.
+          </p>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="academic-approach">
+      <h2>My approach</h2>
+
+      <div class="academic-speech-bubble">
+        <p>
+          Good academic writing is not about using complicated words to
+          make simple ideas sound mysterious.
+        </p>
+
+        <p>
+          We focus on clear thinking, logical structure, strong evidence,
+          and precise language so that your work sounds academic without
+          becoming unreadable.
+        </p>
+      </div>
+    </section>
+
+    <div class="academic-contact">
+      <a href="contact.html" class="button">Contact Gee</a>
+    </div>
+
+    <a href="about.html#work-with-me" class="academic-back-link">
+      ← Back to Services
+    </a>
+
+  </main>
+
+  <footer>
+    <p>© 2026 Gee's Lounge</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const navigation = document.getElementById("navLinks");
+
+      if (navigation) {
+        navigation.classList.toggle("active");
+      }
+    }
+
+    function toggleTheme() {
+      document.body.classList.toggle("light-mode");
+
+      const currentTheme =
+        document.body.classList.contains("light-mode")
+          ? "light"
+          : "dark";
+
+      localStorage.setItem("geeLoungeTheme", currentTheme);
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const savedTheme = localStorage.getItem("geeLoungeTheme");
+
+      if (savedTheme === "light") {
+        document.body.classList.add("light-mode");
+      }
+
+      const slider = document.getElementById("academicSlider");
+      const previousButton = document.getElementById(
+        "previousAcademicSlide"
+      );
+      const nextButton = document.getElementById(
+        "nextAcademicSlide"
+      );
+
+      function moveAcademicSlider(direction) {
+        if (!slider) {
+          return;
+        }
+
+        const firstCard = slider.querySelector(
+          ".academic-slide-card"
+        );
+
+        const cardWidth = firstCard
+          ? firstCard.getBoundingClientRect().width
+          : 310;
+
+        slider.scrollBy({
+          left: direction * (cardWidth + 22),
+          behavior: "smooth"
+        });
+      }
+
+      if (previousButton) {
+        previousButton.addEventListener("click", function () {
+          moveAcademicSlider(-1);
+        });
+      }
+
+      if (nextButton) {
+        nextButton.addEventListener("click", function () {
+          moveAcademicSlider(1);
+        });
+      }
+    });
+  </script>
+
+</body>
+</html>
+```

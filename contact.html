@@ -1,0 +1,936 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Contact | Gee's Lounge</title>
+
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* CONTACT PAGE — SELF-CONTAINED STYLES */
+
+    .contact-page {
+      width: min(1080px, calc(100% - 40px));
+      margin: 55px auto 80px;
+      padding: 0;
+    }
+
+    /* TITLE CARD */
+
+    .contact-title-card {
+      width: 100%;
+      padding: 55px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(139, 92, 246, 0.28),
+          rgba(255, 255, 255, 0.08)
+        );
+
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 30px;
+
+      backdrop-filter: blur(14px);
+
+      box-shadow:
+        0 22px 60px rgba(10, 2, 25, 0.25);
+    }
+
+    .contact-label {
+      margin: 0 0 10px;
+
+      color: #c084fc;
+
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      font-weight: bold;
+
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .contact-title-card h2 {
+      margin: 0 0 20px;
+
+      font-size: clamp(48px, 7vw, 82px);
+      line-height: 1.02;
+    }
+
+    .contact-subline {
+      max-width: 760px;
+      margin: 0;
+
+      color: #e9d5ff;
+
+      font-size: 21px;
+      line-height: 1.7;
+    }
+
+    /* CONTACT LAYOUT */
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr);
+      gap: 35px;
+
+      align-items: start;
+
+      margin: 85px 0;
+    }
+
+    /* LEFT SIDE */
+
+    .contact-information {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    .contact-information h2 {
+      margin: 0 0 5px;
+
+      font-size: clamp(38px, 5vw, 56px);
+      line-height: 1.12;
+    }
+
+    .contact-information > p {
+      margin: 0 0 12px;
+
+      color: #e9d5ff;
+
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .contact-info-card {
+      padding: 25px;
+
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 20px;
+
+      backdrop-filter: blur(10px);
+    }
+
+    .contact-info-card span {
+      display: block;
+
+      margin-bottom: 9px;
+
+      color: #c084fc;
+
+      font-family: Arial, sans-serif;
+      font-size: 12px;
+      font-weight: bold;
+
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .contact-info-card h3 {
+      margin: 0 0 7px;
+
+      color: #f7efff;
+
+      font-size: 23px;
+    }
+
+    .contact-info-card p {
+      margin: 0;
+
+      color: #e9d5ff;
+
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .contact-email-link {
+      color: #d8b4fe;
+      text-decoration: none;
+
+      overflow-wrap: anywhere;
+    }
+
+    .contact-email-link:hover {
+      color: #c084fc;
+    }
+
+    /* FORM */
+
+    .contact-form-card {
+      padding: 38px;
+
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 28px;
+
+      backdrop-filter: blur(12px);
+
+      box-shadow:
+        0 20px 55px rgba(10, 2, 25, 0.2);
+    }
+
+    .contact-form-card h2 {
+      margin: 0 0 10px;
+
+      font-size: 36px;
+      line-height: 1.15;
+    }
+
+    .contact-form-intro {
+      margin: 0 0 30px;
+
+      color: #e9d5ff;
+
+      font-size: 17px;
+      line-height: 1.65;
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 22px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+
+      min-width: 0;
+    }
+
+    .form-group label {
+      color: #e9d5ff;
+
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      min-width: 0;
+
+      padding: 14px 16px;
+
+      background: rgba(18, 5, 31, 0.55);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 14px;
+
+      color: #f7efff;
+
+      font: inherit;
+      font-size: 16px;
+
+      outline: none;
+
+      transition:
+        border-color 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: rgba(233, 213, 255, 0.58);
+    }
+
+    .form-group select option {
+      background: #241035;
+      color: #f7efff;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      background: rgba(18, 5, 31, 0.76);
+      border-color: #c084fc;
+
+      box-shadow:
+        0 0 0 3px rgba(192, 132, 252, 0.16);
+    }
+
+    .form-group textarea {
+      min-height: 170px;
+      resize: vertical;
+    }
+
+    .contact-submit-button {
+      width: fit-content;
+
+      padding: 14px 26px;
+
+      border: none;
+      border-radius: 999px;
+
+      background: #8b5cf6;
+      color: #ffffff;
+
+      font-family: Arial, sans-serif;
+      font-size: 15px;
+      font-weight: bold;
+
+      cursor: pointer;
+
+      transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+    }
+
+    .contact-submit-button:hover {
+      background: #7c3aed;
+      transform: translateY(-2px);
+    }
+
+    .contact-submit-button:focus-visible {
+      outline: 3px solid #d8b4fe;
+      outline-offset: 4px;
+    }
+
+    .form-note {
+      margin: -5px 0 0;
+
+      color: rgba(233, 213, 255, 0.72);
+
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    /* REASONS SECTION */
+
+    .contact-reasons {
+      margin: 95px 0 70px;
+    }
+
+    .contact-reasons-heading {
+      max-width: 760px;
+
+      margin-bottom: 35px;
+    }
+
+    .contact-reasons-heading h2 {
+      margin: 0 0 15px;
+
+      font-size: clamp(38px, 5vw, 56px);
+      line-height: 1.12;
+    }
+
+    .contact-reasons-heading p {
+      margin: 0;
+
+      color: #e9d5ff;
+
+      font-size: 18px;
+      line-height: 1.7;
+    }
+
+    .contact-reason-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .contact-reason-card {
+      min-width: 0;
+      min-height: 245px;
+
+      padding: 28px;
+
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 23px;
+
+      backdrop-filter: blur(10px);
+
+      transition:
+        transform 0.3s ease,
+        background 0.3s ease;
+    }
+
+    .contact-reason-card:hover {
+      transform: translateY(-7px);
+
+      background: rgba(255, 255, 255, 0.11);
+    }
+
+    .reason-number {
+      display: block;
+
+      margin-bottom: 30px;
+
+      color: #c084fc;
+
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      font-weight: bold;
+
+      letter-spacing: 2px;
+    }
+
+    .contact-reason-card h3 {
+      margin: 0 0 14px;
+
+      color: #d8b4fe;
+
+      font-size: 26px;
+      line-height: 1.2;
+    }
+
+    .contact-reason-card p {
+      margin: 0;
+
+      color: #e9d5ff;
+
+      font-size: 17px;
+      line-height: 1.65;
+    }
+
+    /* FINAL NOTE */
+
+    .contact-note-section {
+      margin: 95px 0 70px;
+    }
+
+    .contact-note-section h2 {
+      margin: 0 0 30px;
+
+      font-size: clamp(38px, 5vw, 56px);
+      line-height: 1.12;
+    }
+
+    .contact-note {
+      position: relative;
+
+      max-width: 850px;
+      padding: 40px;
+
+      background: #f3e8ff;
+      border-radius: 28px;
+
+      color: #3b0764;
+
+      box-shadow:
+        0 20px 55px rgba(10, 2, 25, 0.24);
+    }
+
+    .contact-note::after {
+      content: "";
+
+      position: absolute;
+      left: 55px;
+      bottom: -24px;
+
+      width: 0;
+      height: 0;
+
+      border-top: 26px solid #f3e8ff;
+      border-right: 28px solid transparent;
+    }
+
+    .contact-note p {
+      margin: 0 0 18px;
+
+      color: #3b0764;
+
+      font-size: 20px;
+      line-height: 1.7;
+    }
+
+    .contact-note p:last-child {
+      margin-bottom: 0;
+    }
+
+    .contact-back-link {
+      display: inline-block;
+
+      margin-top: 65px;
+
+      color: #d8b4fe;
+
+      text-decoration: none;
+
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+    }
+
+    .contact-back-link:hover {
+      color: #c084fc;
+    }
+
+    /* LIGHT MODE */
+
+    body.light-mode .contact-title-card,
+    body.light-mode .contact-info-card,
+    body.light-mode .contact-form-card,
+    body.light-mode .contact-reason-card {
+      background: rgba(255, 255, 255, 0.78);
+    }
+
+    body.light-mode .contact-subline,
+    body.light-mode .contact-information > p,
+    body.light-mode .contact-info-card p,
+    body.light-mode .contact-form-intro,
+    body.light-mode .contact-reasons-heading p,
+    body.light-mode .contact-reason-card p,
+    body.light-mode .form-group label,
+    body.light-mode .form-note {
+      color: #3b0764;
+    }
+
+    body.light-mode .contact-info-card h3 {
+      color: #2e1065;
+    }
+
+    body.light-mode .form-group input,
+    body.light-mode .form-group select,
+    body.light-mode .form-group textarea {
+      background: rgba(255, 255, 255, 0.85);
+      border-color: rgba(59, 7, 100, 0.2);
+      color: #2e1065;
+    }
+
+    body.light-mode .form-group input::placeholder,
+    body.light-mode .form-group textarea::placeholder {
+      color: rgba(59, 7, 100, 0.55);
+    }
+
+    body.light-mode .form-group select option {
+      background: #ffffff;
+      color: #2e1065;
+    }
+
+    /* TABLET */
+
+    @media (max-width: 900px) {
+      .contact-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-reason-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 650px) {
+      .contact-page {
+        width: calc(100% - 28px);
+        margin-top: 35px;
+      }
+
+      .contact-title-card {
+        padding: 38px 27px;
+      }
+
+      .contact-title-card h2 {
+        font-size: 48px;
+      }
+
+      .contact-form-card {
+        padding: 28px 23px;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-note {
+        padding: 30px;
+      }
+
+      .contact-submit-button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="site-header">
+    <h1 class="logo">Gee's Lounge</h1>
+
+    <button
+      class="menu-btn"
+      type="button"
+      aria-label="Open navigation menu"
+      onclick="toggleMenu()"
+    >
+      ☰
+    </button>
+
+   <nav class="nav-links" id="navLinks">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="blog.html">The Journal</a>
+  <a href="books.html">Reading Room</a>
+  <a href="contact.html">Contact</a>
+
+  <button
+    class="toggle-btn"
+    type="button"
+    aria-label="Switch colour theme"
+    onclick="toggleTheme()"
+  >
+    ☾
+  </button>
+</nav>
+  </header>
+
+  <main class="contact-page">
+
+    <section class="contact-title-card">
+      <p class="contact-label">Come in and say hello</p>
+
+      <h2>Let’s Talk</h2>
+
+      <p class="contact-subline">
+        Whether you are looking for communication support, academic guidance,
+        research collaboration, or simply have an interesting question,
+        I would be glad to hear from you.
+      </p>
+    </section>
+
+
+    <section class="contact-layout">
+
+      <div class="contact-information">
+        <p class="contact-label">Contact Gee</p>
+
+        <h2>Start the conversation.</h2>
+
+        <p>
+          Tell me a little about what you need. You do not need to arrive with
+          the perfect explanation—we can work that part out together.
+        </p>
+
+        <article class="contact-info-card">
+          <span>Email</span>
+
+          <h3>Write directly</h3>
+
+          <p>
+            <a
+              href="mailto:gee.hamdi@gmail.com"
+              class="contact-email-link"
+            >
+              gee.hamdi@gmail.com
+            </a>
+          </p>
+        </article>
+
+        <article class="contact-info-card">
+          <span>Services</span>
+
+          <h3>Work with me</h3>
+
+          <p>
+            Business English, presentation skills, professional communication,
+            academic writing, and research support.
+          </p>
+        </article>
+
+        <article class="contact-info-card">
+          <span>Collaborations</span>
+
+          <h3>Build something useful</h3>
+
+          <p>
+            Academic projects, books, research, workshops, teaching initiatives,
+            and thoughtful collaborations are welcome.
+          </p>
+        </article>
+      </div>
+
+
+      <div class="contact-form-card">
+        <h2>Send a message</h2>
+
+        <p class="contact-form-intro">
+          Complete the form below. When you press the button, your email
+          application will open with your message prepared.
+        </p>
+
+        <form class="contact-form" id="contactForm">
+
+          <div class="form-row">
+
+            <div class="form-group">
+              <label for="contactName">Your name</label>
+
+              <input
+                type="text"
+                id="contactName"
+                name="name"
+                placeholder="How should I address you?"
+                autocomplete="name"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="contactEmail">Your email</label>
+
+              <input
+                type="email"
+                id="contactEmail"
+                name="email"
+                placeholder="you@example.com"
+                autocomplete="email"
+                required
+              />
+            </div>
+
+          </div>
+
+
+          <div class="form-row">
+
+            <div class="form-group">
+              <label for="contactReason">What can I help with?</label>
+
+              <select
+                id="contactReason"
+                name="reason"
+                required
+              >
+                <option value="" selected disabled>
+                  Choose a topic
+                </option>
+
+                <option value="Business English">
+                  Business English
+                </option>
+
+                <option value="Presentation and Soft Skills">
+                  Presentation &amp; Soft Skills
+                </option>
+
+                <option value="Academic Writing and Research">
+                  Academic Writing &amp; Research
+                </option>
+
+                <option value="Book Enquiry">
+                  Book Enquiry
+                </option>
+
+                <option value="Academic Collaboration">
+                  Academic Collaboration
+                </option>
+
+                <option value="General Enquiry">
+                  General Enquiry
+                </option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="contactSubject">Subject</label>
+
+              <input
+                type="text"
+                id="contactSubject"
+                name="subject"
+                placeholder="A brief subject line"
+                required
+              />
+            </div>
+
+          </div>
+
+
+          <div class="form-group">
+            <label for="contactMessage">Your message</label>
+
+            <textarea
+              id="contactMessage"
+              name="message"
+              placeholder="Tell me what you would like to discuss..."
+              required
+            ></textarea>
+          </div>
+
+
+          <button
+            type="submit"
+            class="contact-submit-button"
+          >
+            Prepare My Email
+          </button>
+
+          <p class="form-note">
+            This button opens your device’s email application. Your message
+            will not disappear into a mysterious internet cupboard.
+          </p>
+
+        </form>
+      </div>
+
+    </section>
+
+
+    <section class="contact-reasons">
+      <div class="contact-reasons-heading">
+        <p class="contact-label">Good reasons to reach out</p>
+
+        <h2>What can we discuss?</h2>
+
+        <p>
+          Gee’s Lounge brings together communication, education, psychology,
+          writing, research, books, and collaborative ideas.
+        </p>
+      </div>
+
+      <div class="contact-reason-grid">
+
+        <article class="contact-reason-card">
+          <span class="reason-number">01</span>
+
+          <h3>Communication Support</h3>
+
+          <p>
+            Improve your Business English, presentations, public speaking,
+            workplace communication, or professional confidence.
+          </p>
+        </article>
+
+        <article class="contact-reason-card">
+          <span class="reason-number">02</span>
+
+          <h3>Academic Support</h3>
+
+          <p>
+            Discuss academic writing, research design, literature reviews,
+            articles, chapters, presentations, or publication preparation.
+          </p>
+        </article>
+
+        <article class="contact-reason-card">
+          <span class="reason-number">03</span>
+
+          <h3>Creative Collaboration</h3>
+
+          <p>
+            Propose a workshop, teaching project, research collaboration,
+            publication, book idea, interview, or other worthwhile mischief.
+          </p>
+        </article>
+
+      </div>
+    </section>
+
+
+    <section class="contact-note-section">
+      <h2>A small note before you write</h2>
+
+      <div class="contact-note">
+        <p>
+          You do not need to write a painfully formal message. Tell me who you
+          are, what you are working on, and where you feel stuck.
+        </p>
+
+        <p>
+          Clear and human is always better than impressive and mysterious.
+        </p>
+      </div>
+    </section>
+
+
+    <a href="index.html" class="contact-back-link">
+      ← Back to the Lounge
+    </a>
+
+  </main>
+
+  <footer>
+    <p>© 2026 Gee's Lounge</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const navigation = document.getElementById("navLinks");
+
+      if (navigation) {
+        navigation.classList.toggle("active");
+      }
+    }
+
+    function toggleTheme() {
+      document.body.classList.toggle("light-mode");
+
+      const currentTheme =
+        document.body.classList.contains("light-mode")
+          ? "light"
+          : "dark";
+
+      localStorage.setItem("geeLoungeTheme", currentTheme);
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const savedTheme = localStorage.getItem("geeLoungeTheme");
+
+      if (savedTheme === "light") {
+        document.body.classList.add("light-mode");
+      }
+
+      const contactForm = document.getElementById("contactForm");
+
+      if (contactForm) {
+        contactForm.addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          const name =
+            document.getElementById("contactName").value.trim();
+
+          const email =
+            document.getElementById("contactEmail").value.trim();
+
+          const reason =
+            document.getElementById("contactReason").value;
+
+          const subject =
+            document.getElementById("contactSubject").value.trim();
+
+          const message =
+            document.getElementById("contactMessage").value.trim();
+
+          const emailSubject =
+            subject + " — " + reason;
+
+          const emailBody =
+            "Hello Gee,\n\n" +
+            message +
+            "\n\n" +
+            "Name: " + name +
+            "\n" +
+            "Email: " + email +
+            "\n" +
+            "Enquiry type: " + reason;
+
+          const mailtoLink =
+            "mailto:gee.hamdi@gmail.com" +
+            "?subject=" + encodeURIComponent(emailSubject) +
+            "&body=" + encodeURIComponent(emailBody);
+
+          window.location.href = mailtoLink;
+        });
+      }
+    });
+  </script>
+
+</body>
+</html>
+```

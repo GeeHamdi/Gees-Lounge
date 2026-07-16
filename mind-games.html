@@ -1,0 +1,791 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Mind Games | Gee's Lounge</title>
+
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* MIND GAMES PAGE — SELF-CONTAINED STYLES */
+
+    .book-page {
+      width: min(1080px, calc(100% - 40px));
+      margin: 55px auto 80px;
+      padding: 0;
+    }
+
+    /* HERO */
+
+    .book-hero-card {
+      display: grid;
+      grid-template-columns: 260px minmax(0, 1fr);
+      gap: 55px;
+      align-items: center;
+      width: 100%;
+      padding: 50px;
+      background:
+        linear-gradient(
+          135deg,
+          rgba(139, 92, 246, 0.28),
+          rgba(255, 255, 255, 0.08)
+        );
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 30px;
+      backdrop-filter: blur(14px);
+      box-shadow: 0 22px 60px rgba(10, 2, 25, 0.25);
+    }
+
+    .book-cover-large {
+      position: relative;
+      width: 250px;
+      height: 375px;
+      overflow: hidden;
+      border-radius: 9px 18px 18px 9px;
+      box-shadow:
+        16px 22px 45px rgba(5, 1, 15, 0.48),
+        inset 6px 0 10px rgba(255, 255, 255, 0.08);
+      transform: perspective(1000px) rotateY(-5deg);
+      transition: transform 0.35s ease;
+    }
+
+    .book-hero-card:hover .book-cover-large {
+      transform: perspective(1000px) rotateY(0deg) translateY(-4px);
+    }
+
+    .book-cover-large img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    .mind-games-placeholder {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 100%;
+      height: 100%;
+      padding: 30px 25px;
+      background:
+        radial-gradient(
+          circle at top right,
+          rgba(216, 180, 254, 0.45),
+          transparent 32%
+        ),
+        radial-gradient(
+          circle at bottom left,
+          rgba(139, 92, 246, 0.24),
+          transparent 38%
+        ),
+        linear-gradient(150deg, #34126d, #160520 62%, #08010d);
+      color: #ffffff;
+    }
+
+    .cover-label {
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      opacity: 0.82;
+    }
+
+    .mind-games-placeholder h2 {
+      margin: auto 0;
+      color: #ffffff;
+      font-size: 42px;
+      line-height: 1;
+    }
+
+    .cover-author {
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      letter-spacing: 1px;
+    }
+
+    .book-hero-text {
+      min-width: 0;
+    }
+
+    .book-label {
+      margin: 0 0 10px;
+      color: #c084fc;
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .book-hero-text h1 {
+      margin: 0 0 18px;
+      font-size: clamp(52px, 7vw, 84px);
+      line-height: 1.02;
+      overflow-wrap: break-word;
+    }
+
+    .book-tagline {
+      max-width: 700px;
+      margin: 0 0 26px;
+      color: #e9d5ff;
+      font-size: 22px;
+      line-height: 1.65;
+    }
+
+    .book-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 25px;
+    }
+
+    .book-meta span {
+      display: inline-block;
+      padding: 8px 13px;
+      background: rgba(255, 255, 255, 0.09);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 999px;
+      color: #e9d5ff;
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .book-hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .order-button {
+      display: inline-block;
+      padding: 14px 25px;
+      border-radius: 999px;
+      background: #8b5cf6;
+      color: #ffffff;
+      text-decoration: none;
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+      transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+    }
+
+    .order-button:hover {
+      background: #7c3aed;
+      transform: translateY(-2px);
+    }
+
+    .reading-room-link {
+      display: inline-block;
+      padding: 13px 22px;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 999px;
+      color: #e9d5ff;
+      text-decoration: none;
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+      transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+    }
+
+    .reading-room-link:hover {
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateY(-2px);
+    }
+
+    /* CONTENT SECTIONS */
+
+    .book-section {
+      margin: 90px 0;
+    }
+
+    .book-section h2 {
+      margin: 0 0 25px;
+      font-size: clamp(38px, 5vw, 58px);
+      line-height: 1.12;
+    }
+
+    .book-section > p {
+      max-width: 860px;
+      margin: 0 0 20px;
+      color: #e9d5ff;
+      font-size: 19px;
+      line-height: 1.75;
+    }
+
+    /* THEMES */
+
+    .theme-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+      margin-top: 35px;
+    }
+
+    .theme-card {
+      min-width: 0;
+      min-height: 250px;
+      padding: 28px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 24px;
+      backdrop-filter: blur(10px);
+      transition:
+        transform 0.3s ease,
+        background 0.3s ease;
+    }
+
+    .theme-card:hover {
+      transform: translateY(-7px);
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .theme-number {
+      display: block;
+      margin-bottom: 30px;
+      color: #c084fc;
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    .theme-card h3 {
+      margin: 0 0 15px;
+      color: #d8b4fe;
+      font-size: 27px;
+      line-height: 1.2;
+    }
+
+    .theme-card p {
+      margin: 0;
+      color: #e9d5ff;
+      font-size: 17px;
+      line-height: 1.65;
+    }
+
+    /* WHO SHOULD READ IT */
+
+    .reader-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 30px;
+    }
+
+    .reader-item {
+      display: flex;
+      gap: 15px;
+      align-items: flex-start;
+      margin: 0;
+      padding: 22px;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 18px;
+      color: #e9d5ff;
+      font-size: 18px;
+      line-height: 1.55;
+    }
+
+    .reader-check {
+      flex: 0 0 auto;
+      color: #c084fc;
+      font-family: Arial, sans-serif;
+      font-size: 23px;
+      font-weight: bold;
+      line-height: 1;
+    }
+
+    /* AUTHOR NOTE */
+
+    .author-note-section {
+      margin: 95px 0 70px;
+    }
+
+    .author-note-section h2 {
+      margin: 0 0 30px;
+      font-size: clamp(38px, 5vw, 56px);
+      line-height: 1.12;
+    }
+
+    .author-note {
+      position: relative;
+      max-width: 850px;
+      padding: 40px;
+      background: #f3e8ff;
+      border-radius: 28px;
+      color: #3b0764;
+      box-shadow: 0 20px 55px rgba(10, 2, 25, 0.24);
+    }
+
+    .author-note::after {
+      content: "";
+      position: absolute;
+      left: 55px;
+      bottom: -24px;
+      width: 0;
+      height: 0;
+      border-top: 26px solid #f3e8ff;
+      border-right: 28px solid transparent;
+    }
+
+    .author-note p {
+      margin: 0 0 18px;
+      color: #3b0764;
+      font-size: 20px;
+      line-height: 1.7;
+    }
+
+    .author-note p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* FINAL ACTIONS */
+
+    .book-final-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      align-items: center;
+      margin-top: 65px;
+    }
+
+    .book-back-link {
+      display: inline-block;
+      margin-top: 65px;
+      color: #d8b4fe;
+      text-decoration: none;
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+    }
+
+    .book-back-link:hover {
+      color: #c084fc;
+    }
+
+    /* LIGHT MODE */
+
+    body.light-mode .book-hero-card,
+    body.light-mode .theme-card,
+    body.light-mode .reader-item {
+      background: rgba(255, 255, 255, 0.78);
+    }
+
+    body.light-mode .book-tagline,
+    body.light-mode .book-section > p,
+    body.light-mode .theme-card p,
+    body.light-mode .reader-item,
+    body.light-mode .book-meta span {
+      color: #3b0764;
+    }
+
+    body.light-mode .reading-room-link {
+      color: #3b0764;
+      border-color: rgba(59, 7, 100, 0.25);
+    }
+
+    /* TABLET */
+
+    @media (max-width: 900px) {
+      .book-hero-card {
+        grid-template-columns: 1fr;
+      }
+
+      .book-cover-large {
+        margin: 0 auto;
+      }
+
+      .book-hero-text {
+        text-align: center;
+      }
+
+      .book-meta,
+      .book-hero-actions {
+        justify-content: center;
+      }
+
+      .book-tagline {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .theme-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 650px) {
+      .book-page {
+        width: calc(100% - 28px);
+        margin-top: 35px;
+      }
+
+      .book-hero-card {
+        padding: 32px 24px;
+      }
+
+      .book-cover-large {
+        width: min(230px, 100%);
+        height: 345px;
+      }
+
+      .book-hero-text h1 {
+        font-size: 50px;
+      }
+
+      .reader-list {
+        grid-template-columns: 1fr;
+      }
+
+      .author-note {
+        padding: 30px;
+      }
+
+      .book-final-actions {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="site-header">
+    <h1 class="logo">Gee's Lounge</h1>
+
+    <button
+      class="menu-btn"
+      type="button"
+      aria-label="Open navigation menu"
+      onclick="toggleMenu()"
+    >
+      ☰
+    </button>
+
+    <nav class="nav-links" id="navLinks">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="blog.html">The Journal</a>
+  <a href="books.html">Reading Room</a>
+  <a href="contact.html">Contact</a>
+
+  <button
+    class="toggle-btn"
+    type="button"
+    aria-label="Switch colour theme"
+    onclick="toggleTheme()"
+  >
+    ☾
+  </button>
+</nav>
+  </header>
+
+  <main class="book-page">
+
+    <section class="book-hero-card">
+
+      <div class="book-cover-large">
+
+        <!--
+          Later, replace the placeholder below with your real cover:
+
+          <img
+            src="images/mind-games-cover.jpg"
+            alt="Cover of Mind Games by Gee Hamdi"
+          />
+        -->
+
+        <div class="mind-games-placeholder">
+          <span class="cover-label">Psychology · Human Behaviour</span>
+
+          <h2>Mind Games</h2>
+
+          <span class="cover-author">Gee Hamdi</span>
+        </div>
+
+      </div>
+
+      <div class="book-hero-text">
+        <p class="book-label">Featured in the Reading Room</p>
+
+        <h1>Mind Games</h1>
+
+        <p class="book-tagline">
+          A close look at manipulation, emotional strategies, hidden motives,
+          and the psychological patterns that shape human relationships.
+        </p>
+
+        <div class="book-meta">
+          <span>Psychology</span>
+          <span>Human Behaviour</span>
+          <span>Relationships</span>
+        </div>
+
+        <div class="book-hero-actions">
+
+          <!--
+            Replace # with your Lulu ordering link when available.
+          -->
+
+          <a
+            href="#"
+            class="order-button"
+            onclick="showOrderMessage(event)"
+          >
+            Order Now
+          </a>
+
+          <a href="books.html" class="reading-room-link">
+            Visit the Reading Room
+          </a>
+
+        </div>
+      </div>
+
+    </section>
+
+
+    <section class="book-section">
+      <p class="book-label">About the Book</p>
+
+      <h2>What happens when human interaction becomes a game?</h2>
+
+      <p>
+        People do not always say exactly what they mean. Sometimes they hide
+        behind charm, silence, guilt, anger, confusion, or carefully chosen
+        words. At other times, they may not even recognise the patterns they
+        repeatedly create.
+      </p>
+
+      <p>
+        <em>Mind Games</em> examines the psychological strategies people use
+        to gain attention, avoid responsibility, control relationships, protect
+        themselves, or maintain power over others.
+      </p>
+
+      <p>
+        Rather than reducing every difficult interaction to a simple label,
+        the book looks beneath behaviour to explore the fears, needs, motives,
+        and emotional habits that may be driving it.
+      </p>
+    </section>
+
+
+    <section class="book-section">
+      <p class="book-label">Inside the Book</p>
+
+      <h2>Key themes</h2>
+
+      <div class="theme-grid">
+
+        <article class="theme-card">
+          <span class="theme-number">01</span>
+
+          <h3>Manipulation</h3>
+
+          <p>
+            How guilt, pressure, charm, silence, confusion, and emotional
+            reactions can be used to influence other people.
+          </p>
+        </article>
+
+        <article class="theme-card">
+          <span class="theme-number">02</span>
+
+          <h3>Hidden Motives</h3>
+
+          <p>
+            Why behaviour often communicates needs and intentions that people
+            cannot—or will not—express directly.
+          </p>
+        </article>
+
+        <article class="theme-card">
+          <span class="theme-number">03</span>
+
+          <h3>Emotional Patterns</h3>
+
+          <p>
+            How repeated roles and familiar relationship dynamics can become
+            difficult to recognise and even harder to escape.
+          </p>
+        </article>
+
+        <article class="theme-card">
+          <span class="theme-number">04</span>
+
+          <h3>Power &amp; Control</h3>
+
+          <p>
+            The subtle ways people seek control over conversations,
+            relationships, choices, and emotional responses.
+          </p>
+        </article>
+
+        <article class="theme-card">
+          <span class="theme-number">05</span>
+
+          <h3>Boundaries</h3>
+
+          <p>
+            How clearer boundaries can interrupt unhealthy patterns without
+            turning every conflict into a declaration of war.
+          </p>
+        </article>
+
+        <article class="theme-card">
+          <span class="theme-number">06</span>
+
+          <h3>Self-Awareness</h3>
+
+          <p>
+            Recognising not only what other people are doing, but also how our
+            own fears and reactions may keep the game going.
+          </p>
+        </article>
+
+      </div>
+    </section>
+
+
+    <section class="book-section">
+      <p class="book-label">For Curious Readers</p>
+
+      <h2>Who should read it?</h2>
+
+      <div class="reader-list">
+
+        <p class="reader-item">
+          <span class="reader-check">✓</span>
+
+          <span>
+            Readers interested in psychology, relationships, and human
+            behaviour.
+          </span>
+        </p>
+
+        <p class="reader-item">
+          <span class="reader-check">✓</span>
+
+          <span>
+            Anyone trying to understand confusing or emotionally exhausting
+            interactions.
+          </span>
+        </p>
+
+        <p class="reader-item">
+          <span class="reader-check">✓</span>
+
+          <span>
+            People learning to recognise manipulation, mixed messages, and
+            unhealthy relationship patterns.
+          </span>
+        </p>
+
+        <p class="reader-item">
+          <span class="reader-check">✓</span>
+
+          <span>
+            Readers who prefer honest reflection to empty motivational advice.
+          </span>
+        </p>
+
+      </div>
+    </section>
+
+
+    <section class="author-note-section">
+      <h2>Why I wrote it</h2>
+
+      <div class="author-note">
+        <p>
+          I wrote <em>Mind Games</em> because difficult behaviour is often
+          discussed in extremes. People are quickly labelled, condemned, or
+          excused, while the actual pattern remains unexplored.
+        </p>
+
+        <p>
+          I wanted to create something that helps readers recognise what may
+          be happening beneath the surface—without pretending that
+          understanding a behaviour means accepting it.
+        </p>
+      </div>
+    </section>
+
+
+    <div class="book-final-actions">
+
+      <a
+        href="#"
+        class="order-button"
+        onclick="showOrderMessage(event)"
+      >
+        Order Now
+      </a>
+
+      <a href="contact.html" class="reading-room-link">
+        Ask About the Book
+      </a>
+
+    </div>
+
+    <a href="books.html" class="book-back-link">
+      ← Back to the Reading Room
+    </a>
+
+  </main>
+
+  <footer>
+    <p>© 2026 Gee's Lounge</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const navigation = document.getElementById("navLinks");
+
+      if (navigation) {
+        navigation.classList.toggle("active");
+      }
+    }
+
+    function toggleTheme() {
+      document.body.classList.toggle("light-mode");
+
+      const currentTheme =
+        document.body.classList.contains("light-mode")
+          ? "light"
+          : "dark";
+
+      localStorage.setItem("geeLoungeTheme", currentTheme);
+    }
+
+    function showOrderMessage(event) {
+      event.preventDefault();
+
+      alert(
+        "Online ordering will become available here once Mind Games is connected to its print-and-delivery page."
+      );
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const savedTheme = localStorage.getItem("geeLoungeTheme");
+
+      if (savedTheme === "light") {
+        document.body.classList.add("light-mode");
+      }
+    });
+  </script>
+
+</body>
+</html>
+```

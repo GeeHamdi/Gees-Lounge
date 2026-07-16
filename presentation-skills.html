@@ -1,0 +1,601 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Presentation &amp; Soft Skills | Gee's Lounge</title>
+
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* PRESENTATION SKILLS PAGE — SELF-CONTAINED STYLES */
+
+    .presentation-page {
+      width: min(1080px, calc(100% - 40px));
+      margin: 55px auto 80px;
+      padding: 0;
+    }
+
+    .presentation-title-card {
+      width: 100%;
+      padding: 55px;
+      background:
+        linear-gradient(
+          135deg,
+          rgba(139, 92, 246, 0.28),
+          rgba(255, 255, 255, 0.08)
+        );
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 30px;
+      backdrop-filter: blur(14px);
+      box-shadow: 0 22px 60px rgba(10, 2, 25, 0.25);
+    }
+
+    .presentation-label {
+      margin: 0 0 10px;
+      color: #c084fc;
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .presentation-title-card h2 {
+      margin: 0 0 20px;
+      font-size: clamp(48px, 7vw, 82px);
+      line-height: 1.02;
+    }
+
+    .presentation-subline {
+      max-width: 760px;
+      margin: 0;
+      color: #e9d5ff;
+      font-size: 21px;
+      line-height: 1.7;
+    }
+
+    .presentation-audience {
+      margin: 85px 0;
+    }
+
+    .presentation-audience h2,
+    .presentation-slider-heading h2,
+    .presentation-approach h2 {
+      margin: 0 0 30px;
+      font-size: clamp(38px, 5vw, 58px);
+      line-height: 1.12;
+    }
+
+    .presentation-ticks {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .presentation-tick {
+      display: flex;
+      gap: 15px;
+      align-items: flex-start;
+      margin: 0;
+      padding: 22px;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 18px;
+      color: #e9d5ff;
+      font-size: 18px;
+      line-height: 1.55;
+    }
+
+    .presentation-tick-mark {
+      flex: 0 0 auto;
+      color: #c084fc;
+      font-family: Arial, sans-serif;
+      font-size: 23px;
+      font-weight: bold;
+      line-height: 1;
+    }
+
+    .presentation-slider-section {
+      width: 100%;
+      margin: 95px 0;
+      overflow: hidden;
+    }
+
+    .presentation-slider-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 30px;
+      margin-bottom: 30px;
+    }
+
+    .presentation-slider-heading p {
+      margin: 0 0 8px;
+    }
+
+    .presentation-slider-heading h2 {
+      margin-bottom: 0;
+    }
+
+    .presentation-slider-buttons {
+      display: flex;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .presentation-slider-buttons button {
+      width: 50px;
+      height: 50px;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      font-size: 23px;
+      cursor: pointer;
+      transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+    }
+
+    .presentation-slider-buttons button:hover {
+      background: #8b5cf6;
+      transform: translateY(-2px);
+    }
+
+    .presentation-slider-buttons button:focus-visible {
+      outline: 3px solid #c084fc;
+      outline-offset: 3px;
+    }
+
+    .presentation-slider {
+      display: flex;
+      gap: 22px;
+      width: 100%;
+      overflow-x: auto;
+      overflow-y: hidden;
+      padding: 5px 5px 24px;
+      scroll-behavior: smooth;
+      scroll-snap-type: x mandatory;
+      overscroll-behavior-inline: contain;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .presentation-slider::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .presentation-slider::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+    }
+
+    .presentation-slider::-webkit-scrollbar-thumb {
+      background: #8b5cf6;
+      border-radius: 20px;
+    }
+
+    .presentation-slide-card {
+      flex: 0 0 310px;
+      width: 310px;
+      min-width: 310px;
+      min-height: 295px;
+      padding: 30px;
+      scroll-snap-align: start;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 24px;
+      backdrop-filter: blur(10px);
+    }
+
+    .presentation-slide-number {
+      display: block;
+      margin-bottom: 34px;
+      color: #c084fc;
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    .presentation-slide-card h3 {
+      margin: 0 0 15px;
+      color: #d8b4fe;
+      font-size: 28px;
+      line-height: 1.2;
+    }
+
+    .presentation-slide-card p {
+      margin: 0;
+      color: #e9d5ff;
+      font-size: 18px;
+      line-height: 1.65;
+    }
+
+    .presentation-approach {
+      margin: 95px 0 70px;
+    }
+
+    .presentation-speech-bubble {
+      position: relative;
+      max-width: 850px;
+      padding: 40px;
+      background: #f3e8ff;
+      border-radius: 28px;
+      color: #3b0764;
+      box-shadow: 0 20px 55px rgba(10, 2, 25, 0.24);
+    }
+
+    .presentation-speech-bubble::after {
+      content: "";
+      position: absolute;
+      left: 55px;
+      bottom: -24px;
+      width: 0;
+      height: 0;
+      border-top: 26px solid #f3e8ff;
+      border-right: 28px solid transparent;
+    }
+
+    .presentation-speech-bubble p {
+      margin: 0 0 18px;
+      color: #3b0764;
+      font-size: 20px;
+      line-height: 1.7;
+    }
+
+    .presentation-speech-bubble p:last-child {
+      margin-bottom: 0;
+    }
+
+    .presentation-contact {
+      margin-top: 65px;
+    }
+
+    .presentation-back-link {
+      display: inline-block;
+      margin-top: 65px;
+      color: #d8b4fe;
+      text-decoration: none;
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+    }
+
+    .presentation-back-link:hover {
+      color: #c084fc;
+    }
+
+    body.light-mode .presentation-title-card,
+    body.light-mode .presentation-tick,
+    body.light-mode .presentation-slide-card {
+      background: rgba(255, 255, 255, 0.78);
+    }
+
+    body.light-mode .presentation-subline,
+    body.light-mode .presentation-tick,
+    body.light-mode .presentation-slide-card p {
+      color: #3b0764;
+    }
+
+    body.light-mode .presentation-slider-buttons button {
+      color: #3b0764;
+      border-color: rgba(59, 7, 100, 0.25);
+    }
+
+    @media (max-width: 760px) {
+      .presentation-page {
+        width: calc(100% - 28px);
+        margin-top: 35px;
+      }
+
+      .presentation-title-card {
+        padding: 38px 27px;
+      }
+
+      .presentation-title-card h2 {
+        font-size: 48px;
+      }
+
+      .presentation-ticks {
+        grid-template-columns: 1fr;
+      }
+
+      .presentation-slider-top {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .presentation-slide-card {
+        flex-basis: 82vw;
+        width: 82vw;
+        min-width: 82vw;
+      }
+
+      .presentation-speech-bubble {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="site-header">
+    <h1 class="logo">Gee's Lounge</h1>
+
+    <button
+      class="menu-btn"
+      type="button"
+      aria-label="Open navigation menu"
+      onclick="toggleMenu()"
+    >
+      ☰
+    </button>
+
+    <nav class="nav-links" id="navLinks">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="blog.html">The Journal</a>
+  <a href="books.html">Reading Room</a>
+  <a href="contact.html">Contact</a>
+
+  <button
+    class="toggle-btn"
+    type="button"
+    aria-label="Switch colour theme"
+    onclick="toggleTheme()"
+  >
+    ☾
+  </button>
+</nav>
+  </header>
+
+  <main class="presentation-page">
+
+    <section class="presentation-title-card">
+      <p class="presentation-label">Communication Services</p>
+
+      <h2>Presentation &amp; Soft Skills</h2>
+
+      <p class="presentation-subline">
+        Learn how to organise your ideas, connect with your audience, and
+        communicate with confidence in academic, professional, and public
+        settings.
+      </p>
+    </section>
+
+    <section class="presentation-audience">
+      <h2>Who is it for?</h2>
+
+      <div class="presentation-ticks">
+
+        <p class="presentation-tick">
+          <span class="presentation-tick-mark">✓</span>
+          <span>Students preparing academic presentations and oral assessments.</span>
+        </p>
+
+        <p class="presentation-tick">
+          <span class="presentation-tick-mark">✓</span>
+          <span>Professionals presenting projects, reports, proposals, or ideas.</span>
+        </p>
+
+        <p class="presentation-tick">
+          <span class="presentation-tick-mark">✓</span>
+          <span>Anyone who experiences anxiety when speaking before an audience.</span>
+        </p>
+
+        <p class="presentation-tick">
+          <span class="presentation-tick-mark">✓</span>
+          <span>
+            People who want stronger communication, interpersonal, and leadership skills.
+          </span>
+        </p>
+
+      </div>
+    </section>
+
+    <section class="presentation-slider-section">
+
+      <div class="presentation-slider-top">
+
+        <div class="presentation-slider-heading">
+          <p class="presentation-label">Skills &amp; Support</p>
+          <h2>What we can work on</h2>
+        </div>
+
+        <div class="presentation-slider-buttons">
+          <button
+            type="button"
+            id="previousPresentationSlide"
+            aria-label="Show previous item"
+          >
+            ←
+          </button>
+
+          <button
+            type="button"
+            id="nextPresentationSlide"
+            aria-label="Show next item"
+          >
+            →
+          </button>
+        </div>
+
+      </div>
+
+      <div class="presentation-slider" id="presentationSlider">
+
+        <article class="presentation-slide-card">
+          <span class="presentation-slide-number">01</span>
+
+          <h3>Presentation Structure</h3>
+
+          <p>
+            Organise your message into a clear opening, logical development,
+            and memorable conclusion.
+          </p>
+        </article>
+
+        <article class="presentation-slide-card">
+          <span class="presentation-slide-number">02</span>
+
+          <h3>Public Speaking</h3>
+
+          <p>
+            Develop stronger vocal delivery, eye contact, body language,
+            pacing, and audience engagement.
+          </p>
+        </article>
+
+        <article class="presentation-slide-card">
+          <span class="presentation-slide-number">03</span>
+
+          <h3>Managing Anxiety</h3>
+
+          <p>
+            Understand presentation anxiety and practise realistic techniques
+            for remaining calm, focused, and in control.
+          </p>
+        </article>
+
+        <article class="presentation-slide-card">
+          <span class="presentation-slide-number">04</span>
+
+          <h3>Visual Design</h3>
+
+          <p>
+            Create clear, purposeful slides that support your message instead
+            of distracting your audience from it.
+          </p>
+        </article>
+
+        <article class="presentation-slide-card">
+          <span class="presentation-slide-number">05</span>
+
+          <h3>Handling Questions</h3>
+
+          <p>
+            Respond to difficult, unexpected, or critical questions calmly
+            without losing your confidence or your train of thought.
+          </p>
+        </article>
+
+        <article class="presentation-slide-card">
+          <span class="presentation-slide-number">06</span>
+
+          <h3>Professional Presence</h3>
+
+          <p>
+            Strengthen your confidence, credibility, interpersonal style,
+            and ability to communicate effectively in professional settings.
+          </p>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="presentation-approach">
+      <h2>My approach</h2>
+
+      <div class="presentation-speech-bubble">
+        <p>
+          A strong presentation is not about memorising every word or filling
+          slides with information. It is about helping people understand,
+          remember, and respond to your message.
+        </p>
+
+        <p>
+          We work on structure, delivery, audience awareness, confidence, and
+          authentic communication so that people remember you—not merely your
+          PowerPoint.
+        </p>
+      </div>
+    </section>
+
+    <div class="presentation-contact">
+      <a href="contact.html" class="button">Contact Gee</a>
+    </div>
+
+    <a href="about.html#work-with-me" class="presentation-back-link">
+      ← Back to Services
+    </a>
+
+  </main>
+
+  <footer>
+    <p>© 2026 Gee's Lounge</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const navigation = document.getElementById("navLinks");
+
+      if (navigation) {
+        navigation.classList.toggle("active");
+      }
+    }
+
+    function toggleTheme() {
+      document.body.classList.toggle("light-mode");
+
+      const currentTheme =
+        document.body.classList.contains("light-mode")
+          ? "light"
+          : "dark";
+
+      localStorage.setItem("geeLoungeTheme", currentTheme);
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const savedTheme = localStorage.getItem("geeLoungeTheme");
+
+      if (savedTheme === "light") {
+        document.body.classList.add("light-mode");
+      }
+
+      const slider = document.getElementById("presentationSlider");
+      const previousButton = document.getElementById(
+        "previousPresentationSlide"
+      );
+      const nextButton = document.getElementById(
+        "nextPresentationSlide"
+      );
+
+      function movePresentationSlider(direction) {
+        if (!slider) {
+          return;
+        }
+
+        const firstCard = slider.querySelector(
+          ".presentation-slide-card"
+        );
+
+        const cardWidth = firstCard
+          ? firstCard.getBoundingClientRect().width
+          : 310;
+
+        slider.scrollBy({
+          left: direction * (cardWidth + 22),
+          behavior: "smooth"
+        });
+      }
+
+      if (previousButton) {
+        previousButton.addEventListener("click", function () {
+          movePresentationSlider(-1);
+        });
+      }
+
+      if (nextButton) {
+        nextButton.addEventListener("click", function () {
+          movePresentationSlider(1);
+        });
+      }
+    });
+  </script>
+
+</body>
+</html>
+```

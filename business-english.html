@@ -1,0 +1,582 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Business English | Gee's Lounge</title>
+
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* BUSINESS ENGLISH PAGE — SELF-CONTAINED STYLES */
+
+    .business-page {
+      width: min(1080px, calc(100% - 40px));
+      margin: 55px auto 80px;
+      padding: 0;
+    }
+
+    .business-title-card {
+      width: 100%;
+      padding: 55px;
+      background:
+        linear-gradient(
+          135deg,
+          rgba(139, 92, 246, 0.28),
+          rgba(255, 255, 255, 0.08)
+        );
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 30px;
+      backdrop-filter: blur(14px);
+      box-shadow: 0 22px 60px rgba(10, 2, 25, 0.25);
+    }
+
+    .business-label {
+      margin: 0 0 10px;
+      color: #c084fc;
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      font-weight: bold;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .business-title-card h2 {
+      margin: 0 0 20px;
+      font-size: clamp(48px, 7vw, 82px);
+      line-height: 1.02;
+    }
+
+    .business-subline {
+      max-width: 760px;
+      margin: 0;
+      color: #e9d5ff;
+      font-size: 21px;
+      line-height: 1.7;
+    }
+
+    .business-audience {
+      margin: 85px 0;
+    }
+
+    .business-audience h2,
+    .business-slider-heading h2,
+    .business-approach h2 {
+      margin: 0 0 30px;
+      font-size: clamp(38px, 5vw, 58px);
+      line-height: 1.12;
+    }
+
+    .business-ticks {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .business-tick {
+      display: flex;
+      gap: 15px;
+      align-items: flex-start;
+      margin: 0;
+      padding: 22px;
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 18px;
+      color: #e9d5ff;
+      font-size: 18px;
+      line-height: 1.55;
+    }
+
+    .business-tick-mark {
+      flex: 0 0 auto;
+      color: #c084fc;
+      font-family: Arial, sans-serif;
+      font-size: 23px;
+      font-weight: bold;
+      line-height: 1;
+    }
+
+    .business-slider-section {
+      width: 100%;
+      margin: 95px 0;
+      overflow: hidden;
+    }
+
+    .business-slider-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 30px;
+      margin-bottom: 30px;
+    }
+
+    .business-slider-heading p {
+      margin: 0 0 8px;
+    }
+
+    .business-slider-heading h2 {
+      margin-bottom: 0;
+    }
+
+    .business-slider-buttons {
+      display: flex;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .business-slider-buttons button {
+      width: 50px;
+      height: 50px;
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      font-size: 23px;
+      cursor: pointer;
+      transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+    }
+
+    .business-slider-buttons button:hover {
+      background: #8b5cf6;
+      transform: translateY(-2px);
+    }
+
+    .business-slider-buttons button:focus-visible {
+      outline: 3px solid #c084fc;
+      outline-offset: 3px;
+    }
+
+    .business-slider {
+      display: flex;
+      gap: 22px;
+      width: 100%;
+      overflow-x: auto;
+      overflow-y: hidden;
+      padding: 5px 5px 24px;
+      scroll-behavior: smooth;
+      scroll-snap-type: x mandatory;
+      overscroll-behavior-inline: contain;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .business-slider::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .business-slider::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+    }
+
+    .business-slider::-webkit-scrollbar-thumb {
+      background: #8b5cf6;
+      border-radius: 20px;
+    }
+
+    .business-slide-card {
+      flex: 0 0 310px;
+      width: 310px;
+      min-width: 310px;
+      min-height: 295px;
+      padding: 30px;
+      scroll-snap-align: start;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 24px;
+      backdrop-filter: blur(10px);
+    }
+
+    .business-slide-number {
+      display: block;
+      margin-bottom: 34px;
+      color: #c084fc;
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    .business-slide-card h3 {
+      margin: 0 0 15px;
+      color: #d8b4fe;
+      font-size: 28px;
+      line-height: 1.2;
+    }
+
+    .business-slide-card p {
+      margin: 0;
+      color: #e9d5ff;
+      font-size: 18px;
+      line-height: 1.65;
+    }
+
+    .business-approach {
+      margin: 95px 0 70px;
+    }
+
+    .business-speech-bubble {
+      position: relative;
+      max-width: 850px;
+      padding: 40px;
+      background: #f3e8ff;
+      border-radius: 28px;
+      color: #3b0764;
+      box-shadow: 0 20px 55px rgba(10, 2, 25, 0.24);
+    }
+
+    .business-speech-bubble::after {
+      content: "";
+      position: absolute;
+      left: 55px;
+      bottom: -24px;
+      width: 0;
+      height: 0;
+      border-top: 26px solid #f3e8ff;
+      border-right: 28px solid transparent;
+    }
+
+    .business-speech-bubble p {
+      margin: 0 0 18px;
+      color: #3b0764;
+      font-size: 20px;
+      line-height: 1.7;
+    }
+
+    .business-speech-bubble p:last-child {
+      margin-bottom: 0;
+    }
+
+    .business-contact {
+      margin-top: 65px;
+    }
+
+    .business-back-link {
+      display: inline-block;
+      margin-top: 65px;
+      color: #d8b4fe;
+      text-decoration: none;
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+    }
+
+    .business-back-link:hover {
+      color: #c084fc;
+    }
+
+    body.light-mode .business-title-card,
+    body.light-mode .business-tick,
+    body.light-mode .business-slide-card {
+      background: rgba(255, 255, 255, 0.78);
+    }
+
+    body.light-mode .business-subline,
+    body.light-mode .business-tick,
+    body.light-mode .business-slide-card p {
+      color: #3b0764;
+    }
+
+    body.light-mode .business-slider-buttons button {
+      color: #3b0764;
+      border-color: rgba(59, 7, 100, 0.25);
+    }
+
+    @media (max-width: 760px) {
+      .business-page {
+        width: calc(100% - 28px);
+        margin-top: 35px;
+      }
+
+      .business-title-card {
+        padding: 38px 27px;
+      }
+
+      .business-title-card h2 {
+        font-size: 48px;
+      }
+
+      .business-ticks {
+        grid-template-columns: 1fr;
+      }
+
+      .business-slider-top {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .business-slide-card {
+        flex-basis: 82vw;
+        width: 82vw;
+        min-width: 82vw;
+      }
+
+      .business-speech-bubble {
+        padding: 30px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="site-header">
+    <h1 class="logo">Gee's Lounge</h1>
+
+    <button
+      class="menu-btn"
+      type="button"
+      aria-label="Open navigation menu"
+      onclick="toggleMenu()"
+    >
+      ☰
+    </button>
+
+   <nav class="nav-links" id="navLinks">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="blog.html">The Journal</a>
+  <a href="books.html">Reading Room</a>
+  <a href="contact.html">Contact</a>
+
+  <button
+    class="toggle-btn"
+    type="button"
+    aria-label="Switch colour theme"
+    onclick="toggleTheme()"
+  >
+    ☾
+  </button>
+</nav>
+  </header>
+
+  <main class="business-page">
+
+    <section class="business-title-card">
+      <p class="business-label">Communication Services</p>
+
+      <h2>Business English</h2>
+
+      <p class="business-subline">
+        Practical English for professionals who want to communicate with
+        clarity, confidence, and authority.
+      </p>
+    </section>
+
+    <section class="business-audience">
+      <h2>Who is it for?</h2>
+
+      <div class="business-ticks">
+
+        <p class="business-tick">
+          <span class="business-tick-mark">✓</span>
+          <span>Professionals who use English in the workplace.</span>
+        </p>
+
+        <p class="business-tick">
+          <span class="business-tick-mark">✓</span>
+          <span>Executives preparing for meetings and presentations.</span>
+        </p>
+
+        <p class="business-tick">
+          <span class="business-tick-mark">✓</span>
+          <span>Graduates and job seekers preparing for interviews.</span>
+        </p>
+
+        <p class="business-tick">
+          <span class="business-tick-mark">✓</span>
+          <span>
+            Anyone who understands English but lacks confidence when speaking.
+          </span>
+        </p>
+
+      </div>
+    </section>
+
+    <section class="business-slider-section">
+
+      <div class="business-slider-top">
+
+        <div class="business-slider-heading">
+          <p class="business-label">Skills &amp; Support</p>
+          <h2>What we can work on</h2>
+        </div>
+
+        <div class="business-slider-buttons">
+          <button
+            type="button"
+            id="previousSlide"
+            aria-label="Show previous item"
+          >
+            ←
+          </button>
+
+          <button
+            type="button"
+            id="nextSlide"
+            aria-label="Show next item"
+          >
+            →
+          </button>
+        </div>
+
+      </div>
+
+      <div class="business-slider" id="businessSlider">
+
+        <article class="business-slide-card">
+          <span class="business-slide-number">01</span>
+
+          <h3>Meetings</h3>
+
+          <p>
+            Express opinions, contribute ideas, agree or disagree politely,
+            and ask for clarification.
+          </p>
+        </article>
+
+        <article class="business-slide-card">
+          <span class="business-slide-number">02</span>
+
+          <h3>Interviews</h3>
+
+          <p>
+            Prepare structured answers and present your experience,
+            strengths, and professional goals clearly.
+          </p>
+        </article>
+
+        <article class="business-slide-card">
+          <span class="business-slide-number">03</span>
+
+          <h3>Presentations</h3>
+
+          <p>
+            Organise your ideas, engage your audience, and deliver your
+            message with greater confidence.
+          </p>
+        </article>
+
+        <article class="business-slide-card">
+          <span class="business-slide-number">04</span>
+
+          <h3>Professional Writing</h3>
+
+          <p>
+            Improve emails, reports, proposals, and other forms of workplace
+            communication.
+          </p>
+        </article>
+
+        <article class="business-slide-card">
+          <span class="business-slide-number">05</span>
+
+          <h3>Speaking Confidence</h3>
+
+          <p>
+            Reduce hesitation, organise your thoughts, and speak more naturally
+            when under pressure.
+          </p>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="business-approach">
+      <h2>My approach</h2>
+
+      <div class="business-speech-bubble">
+        <p>
+          Business English is not about memorising impressive phrases and
+          hoping nobody asks a follow-up question.
+        </p>
+
+        <p>
+          We work with realistic professional situations, practical language,
+          and direct feedback. The goal is to help you communicate naturally,
+          clearly, and confidently.
+        </p>
+      </div>
+    </section>
+
+    <div class="business-contact">
+      <a href="contact.html" class="button">Contact Gee</a>
+    </div>
+
+    <a href="about.html#work-with-me" class="business-back-link">
+      ← Back to Services
+    </a>
+
+  </main>
+
+  <footer>
+    <p>© 2026 Gee's Lounge</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const navigation = document.getElementById("navLinks");
+
+      if (navigation) {
+        navigation.classList.toggle("active");
+      }
+    }
+
+    function toggleTheme() {
+      document.body.classList.toggle("light-mode");
+
+      const currentTheme =
+        document.body.classList.contains("light-mode")
+          ? "light"
+          : "dark";
+
+      localStorage.setItem("geeLoungeTheme", currentTheme);
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const savedTheme = localStorage.getItem("geeLoungeTheme");
+
+      if (savedTheme === "light") {
+        document.body.classList.add("light-mode");
+      }
+
+      const slider = document.getElementById("businessSlider");
+      const previousButton = document.getElementById("previousSlide");
+      const nextButton = document.getElementById("nextSlide");
+
+      function moveSlider(direction) {
+        if (!slider) {
+          return;
+        }
+
+        const firstCard = slider.querySelector(".business-slide-card");
+
+        const cardWidth = firstCard
+          ? firstCard.getBoundingClientRect().width
+          : 310;
+
+        slider.scrollBy({
+          left: direction * (cardWidth + 22),
+          behavior: "smooth"
+        });
+      }
+
+      if (previousButton) {
+        previousButton.addEventListener("click", function () {
+          moveSlider(-1);
+        });
+      }
+
+      if (nextButton) {
+        nextButton.addEventListener("click", function () {
+          moveSlider(1);
+        });
+      }
+    });
+  </script>
+
+</body>
+</html>
+```
