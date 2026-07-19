@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Reality Bites: A Time Capsule of Feeling | Gee's Lounge</title>
+
+  <meta
+    name="description"
+    content="A personal reflection on Reality Bites, nostalgia, emotional authenticity, unspoken communication, and the enduring tension between Troy and Lelaina."
+  />
+
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* REALITY BITES ARTICLE PAGE */
+
+    .article-page {
+      width: min(940px, calc(100% - 40px));
+      margin: 55px auto 90px;
+    }
+
+    /* ARTICLE HERO */
+
+    .article-hero {
+      position: relative;
+      overflow: hidden;
+
+      padding: 65px 58px;
+
+      background:
+        radial-gradient(
+          circle at 82% 20%,
+          rgba(244, 114, 182, 0.23),
+          transparent 28%
+        ),
+        radial-gradient(
+          circle at 15% 85%,
+          rgba(192, 132, 252, 0.27),
+          transparent 30%
+        ),
+        linear-gradient(
+          135deg,
+          rgba(139, 92, 246, 0.25),
+          rgba(255, 255, 255, 0.07)
+        );
+
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 32px;
+
+      backdrop-filter: blur(14px);
+
+      box-shadow:
+        0 25px 70px rgba(10, 2, 25, 0.28);
+    }
+
+    .article-hero::before {
+      content: "";
+
+      position: absolute;
+      right: -70px;
+      top: -85px;
+
+      width: 280px;
+      height: 280px;
+
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      border-radius: 50%;
+    }
+
+    .article-hero::after {
+      content: "";
+
+      position: absolute;
+      right: 72px;
+      bottom: 42px;
+
+      width: 82px;
+      height: 82px;
+
+      background: rgba(255, 255, 255, 0.07);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 50%;
+    }
+
+    .article-label {
+      position: relative;
+      z-index: 1;
+
+      margin: 0 0 18px;
+
+      color: #c084fc;
+
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      font-weight: bold;
+
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+    }
+
+    .article-hero h1 {
+      position: relative;
+      z-index: 1;
+
+      max-width: 820px;
+      margin: 0 0 22px;
+
+      color: #f7efff;
+
+      font-size: clamp(45px, 7vw, 76px);
+      line-height: 1.04;
+
+      letter-spacing: -2px;
+    }
+
+    .article-subtitle {
+      position: relative;
+      z-index: 1;
+
+      max-width: 750px;
+      margin: 0;
+
+      color: #e9d5ff;
+
+      font-size: 21px;
+      line-height: 1.7;
+    }
+
+    .article-meta {
+      position: relative;
+      z-index: 1;
+
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 22px;
+
+      margin-top: 30px;
+
+      color: rgba(233, 213, 255, 0.72);
+
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+    }
+
+    /* ARTICLE BODY */
+
+    .article-body {
+      width: min(790px, 100%);
+      margin: 70px auto 0;
+    }
+
+    .article-body p {
+      margin: 0 0 29px;
+
+      color: #f3e8ff;
+
+      font-size: 19px;
+      line-height: 1.92;
+    }
+
+    .article-body > p:first-child::first-letter {
+      float: left;
+
+      margin: 10px 12px 0 0;
+
+      color: #c084fc;
+
+      font-family: Georgia, serif;
+      font-size: 78px;
+      font-weight: bold;
+      line-height: 0.72;
+    }
+
+    .article-body em {
+      color: #f7efff;
+    }
+
+    /* SECTION BREAK */
+
+    .article-pause {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+
+      margin: 48px 0;
+    }
+
+    .article-pause::before,
+    .article-pause::after {
+      content: "";
+
+      flex: 1;
+
+      height: 1px;
+
+      background:
+        linear-gradient(
+          to right,
+          transparent,
+          rgba(216, 180, 254, 0.5),
+          transparent
+        );
+    }
+
+    .article-pause span {
+      color: #c084fc;
+
+      font-size: 25px;
+    }
+
+    /* EMPHASIS */
+
+    .article-emphasis {
+      margin: 48px 0;
+      padding: 33px 38px;
+
+      background:
+        linear-gradient(
+          135deg,
+          rgba(139, 92, 246, 0.17),
+          rgba(255, 255, 255, 0.06)
+        );
+
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-left: 4px solid #c084fc;
+      border-radius: 22px;
+
+      color: #f7efff;
+
+      font-size: clamp(23px, 3vw, 31px);
+      font-style: italic;
+      line-height: 1.55;
+    }
+
+    /* TROY AND LELAINA */
+
+    .relationship-heading {
+      margin: 58px 0 27px;
+
+      color: #f7efff;
+
+      font-size: clamp(34px, 5vw, 51px);
+      line-height: 1.15;
+    }
+
+    /* ENDING */
+
+    .article-ending {
+      margin-top: 50px;
+      padding-top: 38px;
+
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .article-ending p {
+      font-size: 20px;
+    }
+
+    /* NAVIGATION */
+
+    .article-navigation {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 25px;
+
+      width: min(790px, 100%);
+      margin: 65px auto 0;
+      padding-top: 30px;
+
+      border-top: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .article-navigation a {
+      color: #d8b4fe;
+
+      font-family: Arial, sans-serif;
+      font-size: 15px;
+      font-weight: bold;
+      text-decoration: none;
+
+      transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    .article-navigation a:hover {
+      color: #c084fc;
+    }
+
+    .back-to-journal:hover {
+      transform: translateX(-5px);
+    }
+
+    .back-to-home:hover {
+      transform: translateX(5px);
+    }
+
+    /* LIGHT MODE */
+
+    body.light-mode .article-hero {
+      background:
+        radial-gradient(
+          circle at 82% 20%,
+          rgba(244, 114, 182, 0.19),
+          transparent 28%
+        ),
+        radial-gradient(
+          circle at 15% 85%,
+          rgba(192, 132, 252, 0.2),
+          transparent 30%
+        ),
+        rgba(255, 255, 255, 0.82);
+    }
+
+    body.light-mode .article-hero h1,
+    body.light-mode .article-body p,
+    body.light-mode .relationship-heading,
+    body.light-mode .article-emphasis,
+    body.light-mode .article-body em {
+      color: #2e1065;
+    }
+
+    body.light-mode .article-subtitle {
+      color: #3b0764;
+    }
+
+    body.light-mode .article-meta {
+      color: rgba(59, 7, 100, 0.65);
+    }
+
+    body.light-mode .article-emphasis {
+      background: rgba(255, 255, 255, 0.76);
+      border-color: rgba(59, 7, 100, 0.15);
+      border-left-color: #9333ea;
+    }
+
+    body.light-mode .article-navigation {
+      border-top-color: rgba(59, 7, 100, 0.14);
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 650px) {
+      .article-page {
+        width: calc(100% - 28px);
+        margin-top: 35px;
+      }
+
+      .article-hero {
+        padding: 42px 28px;
+      }
+
+      .article-hero h1 {
+        font-size: 45px;
+        letter-spacing: -1px;
+      }
+
+      .article-subtitle {
+        font-size: 18px;
+      }
+
+      .article-body {
+        margin-top: 50px;
+      }
+
+      .article-body p {
+        font-size: 17px;
+        line-height: 1.85;
+      }
+
+      .article-emphasis {
+        padding: 27px;
+      }
+
+      .article-navigation {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="site-header">
+    <h1 class="logo">Gee's Lounge</h1>
+
+    <button
+      class="menu-btn"
+      type="button"
+      aria-label="Open navigation menu"
+      onclick="toggleMenu()"
+    >
+      ☰
+    </button>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="blog.html" class="active">The Journal</a>
+      <a href="books.html">Reading Room</a>
+      <a href="contact.html">Contact</a>
+
+      <button
+        class="toggle-btn"
+        type="button"
+        aria-label="Switch colour theme"
+        onclick="toggleTheme()"
+      >
+        ☾
+      </button>
+    </nav>
+  </header>
+
+  <main class="article-page">
+
+    <article>
+
+      <header class="article-hero">
+        <p class="article-label">
+          Film · Nostalgia · Communication
+        </p>
+
+        <h1>
+          Reality Bites: A Time Capsule of Feeling
+        </h1>
+
+        <p class="article-subtitle">
+          Why the film remains unforgettable long after its fashion,
+          soundtrack, and supposedly defining decade have faded.
+        </p>
+
+        <div class="article-meta">
+          <span>By Gee</span>
+          <span>8 min read</span>
+          <span>The Journal</span>
+        </div>
+      </header>
+
+
+      <div class="article-body">
+
+        <p>
+          To call <em>Reality Bites</em> a '90s classic is true, but it is
+          also profoundly unfair. It reduces the film to its wardrobe and
+          soundtrack while overlooking what truly makes it remarkable. It is
+          a time capsule—but not because it preserves the aesthetics of an
+          era. It preserves a way of feeling.
+        </p>
+
+        <p>
+          Every time I watch it, I'm transported back to a strangely familiar
+          emotional landscape where friendships felt effortless,
+          conversations wandered without urgency, and life itself was slower,
+          messier, and infinitely more authentic. There is a comforting
+          familiarity to it all, as though I am revisiting a place I've never
+          actually been, yet somehow remember.
+        </p>
+
+        <p>
+          It's easy to dismiss it as “just another '90s film,” but that would
+          be missing everything that makes it extraordinary. Watching
+          <em>Reality Bites</em> doesn't feel like watching a story unfold. It
+          feels like spending two hours with people who somehow existed before
+          the cameras started rolling and continued living after they stopped.
+        </p>
+
+        <p>
+          The interactions are so startlingly natural that you stop seeing
+          performances altogether. You don't observe the characters; you
+          simply settle into their world. Before long, their apartment feels
+          familiar, their conversations feel lived in, and you almost forget
+          you're watching fiction.
+        </p>
+
+        <div class="article-pause" aria-hidden="true">
+          <span>✦</span>
+        </div>
+
+        <p>
+          Even the comedic moments carry surprising emotional weight. They're
+          witty without trying too hard, poetic without sounding pretentious,
+          and every line feels deliberate. The humour never exists merely to
+          make you laugh. It reveals character, exposes vulnerability, and
+          often says more than the dramatic scenes themselves.
+        </p>
+
+        <div class="article-emphasis">
+          The film trusts its audience enough to understand that people often
+          hide their deepest truths behind their funniest remarks.
+        </div>
+
+        <h2 class="relationship-heading">
+          And then there's Troy and Lelaina.
+        </h2>
+
+        <p>
+          From the very first scene, the romantic tension between them is
+          impossible to ignore. It's not hidden, yet it is never openly
+          acknowledged. It's like staring at a blazing fire in broad
+          daylight—the flames are there, burning intensely, but the sunlight
+          tricks you into believing they're dimmer than they really are.
+        </p>
+
+        <p>
+          That tension never disappears. It simply changes shape. Sometimes it
+          hides behind jokes. Sometimes behind irritation. Sometimes behind
+          conversations that seem to be about someone else or something else
+          entirely. Every interaction feels charged by emotions neither of
+          them is willing—or perhaps able—to articulate.
+        </p>
+
+        <p>
+          What fascinates me most is how much of this film unfolds beneath the
+          dialogue itself.
+        </p>
+
+        <p>
+          People rarely confront what they truly feel. They circle around it,
+          retreat from it, disguise it with sarcasm, intellectual debates, or
+          perfectly timed humour. The conversations become emotional
+          battlegrounds where affection masquerades as annoyance, fear
+          disguises itself as indifference, and longing is constantly
+          interrupted before it has the chance to become confession.
+        </p>
+
+        <div class="article-emphasis">
+          What remains unsaid often shapes a conversation far more than the
+          words that are spoken.
+        </div>
+
+        <p>
+          As a linguist, I find this endlessly compelling because the film
+          understands a simple truth about human communication: language is
+          never limited to what is explicitly stated. Meaning also lives in
+          hesitation, avoidance, timing, implication, and everything two
+          people seem determined not to admit.
+        </p>
+
+        <p>
+          There is also something quietly surreal about
+          <em>Reality Bites</em>. Not because anything impossible happens, but
+          because ordinary moments are infused with an almost dreamlike
+          intensity. A conversation in a car, an argument in a living room,
+          friends dancing in a convenience store—everything feels slightly
+          larger than life without ever breaking its authenticity.
+        </p>
+
+        <p>
+          The film constantly moves between melancholy and humour, between
+          stillness and chaos, creating an emotional landscape that feels less
+          like reality itself and more like the way reality is remembered.
+        </p>
+
+        <div class="article-pause" aria-hidden="true">
+          <span>✦</span>
+        </div>
+
+        <p>
+          Perhaps that's why <em>Reality Bites</em> has never really aged.
+          Strip away the fashion, the cassette tapes, and the MTV aesthetic,
+          and what remains is astonishingly contemporary. Young adults are
+          still trying to reconcile ambition with authenticity, love with
+          pride, connection with independence, and ideals with survival.
+        </p>
+
+        <p>
+          The scenery has changed. The emotional landscape hasn't.
+        </p>
+
+        <div class="article-ending">
+          <p>
+            For me, <em>Reality Bites</em> is unforgettable because it
+            succeeds on two fronts that rarely coexist. It is steeped in
+            nostalgia, not merely for the 1990s, but for a slower, quieter way
+            of existing—for friendships that unfolded without algorithms,
+            conversations that wandered without purpose, and emotions that
+            were allowed to linger unresolved.
+          </p>
+
+          <p>
+            At the same time, it possesses a remarkable emotional integrity.
+            It refuses easy resolutions, neat character arcs, or convenient
+            declarations of love. It understands that people are often
+            contradictory, that timing can matter more than intention, and
+            that the most meaningful relationships are rarely built on
+            perfect communication.
+          </p>
+
+          <p>
+            That honesty is what gives the film its lasting power. Long after
+            the final scene, you don't remember individual quotes or plot
+            points nearly as much as you remember how it felt to inhabit its
+            world.
+          </p>
+        </div>
+
+      </div>
+
+      <nav class="article-navigation" aria-label="Article navigation">
+        <a href="blog.html" class="back-to-journal">
+          ← Back to The Journal
+        </a>
+
+        <a href="index.html" class="back-to-home">
+          Return to the Lounge →
+        </a>
+      </nav>
+
+    </article>
+
+  </main>
+
+  <footer>
+    <p>© 2026 Gee's Lounge</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const navigation = document.getElementById("navLinks");
+
+      if (navigation) {
+        navigation.classList.toggle("active");
+      }
+    }
+
+    function toggleTheme() {
+      document.body.classList.toggle("light-mode");
+
+      const currentTheme =
+        document.body.classList.contains("light-mode")
+          ? "light"
+          : "dark";
+
+      localStorage.setItem("geeLoungeTheme", currentTheme);
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const savedTheme =
+        localStorage.getItem("geeLoungeTheme");
+
+      if (savedTheme === "light") {
+        document.body.classList.add("light-mode");
+      }
+    });
+  </script>
+
+</body>
+</html>
