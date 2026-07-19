@@ -1316,4 +1316,181 @@ body.light-mode .slider-buttons button {
   .speech-bubble {
     padding: 30px;
   }
+}/* READING ROOM — REAL BOOK EFFECT */
+
+.library-page .library-grid {
+  position: relative;
+  padding: 10px 0 55px;
+
+  background:
+    linear-gradient(
+      to bottom,
+      transparent calc(100% - 22px),
+      rgba(61, 25, 82, 0.92) calc(100% - 22px),
+      rgba(25, 8, 38, 0.98) 100%
+    );
+
+  border-radius: 0 0 14px 14px;
+
+  box-shadow:
+    0 22px 30px -24px rgba(0, 0, 0, 0.9);
+}
+
+
+/* Book container */
+
+.library-page .book-cover {
+  position: relative;
+  isolation: isolate;
+
+  overflow: visible;
+
+  border-radius: 5px 14px 14px 5px;
+
+  transform:
+    perspective(1000px)
+    rotateY(-7deg)
+    rotateX(1deg);
+
+  transform-origin: left center;
+
+  box-shadow:
+    13px 18px 25px rgba(0, 0, 0, 0.42),
+    24px 25px 38px rgba(0, 0, 0, 0.28);
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+
+/* Actual cover image */
+
+.library-page .book-cover img {
+  position: relative;
+  z-index: 3;
+
+  width: 100%;
+  height: 100%;
+
+  display: block;
+  object-fit: cover;
+
+  border-radius: 5px 14px 14px 5px;
+
+  box-shadow:
+    inset 5px 0 8px rgba(255, 255, 255, 0.1);
+}
+
+
+/* Book spine */
+
+.library-page .book-cover::before {
+  content: "";
+
+  position: absolute;
+  z-index: 4;
+
+  top: 0;
+  left: 0;
+
+  width: 13px;
+  height: 100%;
+
+  border-radius: 5px 0 0 5px;
+
+  background:
+    linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.55),
+      rgba(255, 255, 255, 0.14),
+      rgba(0, 0, 0, 0.2)
+    );
+
+  pointer-events: none;
+}
+
+
+/* Soft cover shine */
+
+.library-page .book-cover::after {
+  content: "";
+
+  position: absolute;
+  z-index: 5;
+
+  inset: 0;
+
+  border-radius: 5px 14px 14px 5px;
+
+  background:
+    linear-gradient(
+      115deg,
+      rgba(255, 255, 255, 0.18),
+      transparent 24%,
+      transparent 72%,
+      rgba(255, 255, 255, 0.07)
+    );
+
+  pointer-events: none;
+}
+
+
+/* Hover movement */
+
+.library-page .book-card:hover .book-cover {
+  transform:
+    perspective(1000px)
+    rotateY(-1deg)
+    rotateX(0deg)
+    translateY(-10px)
+    scale(1.025);
+
+  box-shadow:
+    12px 25px 34px rgba(0, 0, 0, 0.48),
+    26px 34px 48px rgba(0, 0, 0, 0.3);
+}
+
+
+/* Slightly warmer cards */
+
+.library-page .book-card {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.105),
+      rgba(255, 255, 255, 0.055)
+    );
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.08),
+    0 18px 45px rgba(9, 2, 18, 0.22);
+}
+
+
+/* Mobile: reduce the 3D angle */
+
+@media (max-width: 650px) {
+  .library-page .book-cover {
+    transform:
+      perspective(1000px)
+      rotateY(-3deg);
+  }
+
+  .library-page .book-card:hover .book-cover {
+    transform:
+      perspective(1000px)
+      rotateY(0deg)
+      translateY(-6px);
+  }
+
+  .library-page .library-grid {
+    background:
+      linear-gradient(
+        to bottom,
+        transparent calc(100% - 18px),
+        rgba(61, 25, 82, 0.92) calc(100% - 18px),
+        rgba(25, 8, 38, 0.98) 100%
+      );
+  }
 }
