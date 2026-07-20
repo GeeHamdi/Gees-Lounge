@@ -1496,18 +1496,27 @@ body.light-mode .slider-buttons button {
 }/* HAMNET ARTICLE — FEATURED IMAGE */
 
 .article-featured-image {
-  width: 100%;
-  margin: 38px 0 48px;
-  overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  border-radius: 26px;
-  background: rgba(255, 255, 255, 0.06);
-  box-shadow:
-    0 24px 60px rgba(8, 2, 20, 0.34),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    width: min(760px, 92%);
+    margin: 45px auto 55px;
+    overflow: hidden;
+
+    border-radius: 22px;
+
+    border: 1px solid rgba(255,255,255,.16);
+
+    box-shadow:
+        0 20px 55px rgba(0,0,0,.28);
+
+    background: rgba(255,255,255,.04);
 }
 
 .article-featured-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+
+    object-fit: cover;
+}
   display: block;
   width: 100%;
   height: auto;
