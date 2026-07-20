@@ -1497,7 +1497,7 @@ body.light-mode .slider-buttons button {
 
 .article-featured-image {
     width: min(760px, 92%);
-    margin: 45px auto 55px;
+    margin: 38px auto 48px;
     overflow: hidden;
 
     border-radius: 22px;
