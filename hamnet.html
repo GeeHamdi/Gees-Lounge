@@ -137,10 +137,74 @@
       .article-content blockquote {
         font-size: 1.22rem;
       }
-    }
+    /* HAMNET HEADER — RIGHT ALIGNED */
+
+.hamnet-header {
+  justify-content: flex-end;
+  gap: 34px;
+}
+
+.hamnet-header .logo {
+  margin: 0;
+  order: 1;
+}
+
+.hamnet-header .nav-links {
+  order: 2;
+  justify-content: flex-end;
+}
+
+@media (max-width: 750px) {
+  .hamnet-header {
+    justify-content: space-between;
+  }
+
+  .hamnet-header .logo {
+    order: 1;
+  }
+
+  .hamnet-header .menu-btn {
+    order: 2;
+    margin-left: auto;
+  }
+
+  .hamnet-header .nav-links {
+    order: 3;
+    width: 100%;
+    align-items: flex-end;
+    text-align: right;
+  }
+}
   </style>
 </head>
+<script>
+  function toggleMenu() {
+    const navigation = document.getElementById("navLinks");
 
+    if (navigation) {
+      navigation.classList.toggle("active");
+    }
+  }
+
+  function toggleTheme() {
+    document.body.classList.toggle("light-mode");
+
+    const currentTheme =
+      document.body.classList.contains("light-mode")
+        ? "light"
+        : "dark";
+
+    localStorage.setItem("geeLoungeTheme", currentTheme);
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const savedTheme = localStorage.getItem("geeLoungeTheme");
+
+    if (savedTheme === "light") {
+      document.body.classList.add("light-mode");
+    }
+  });
+</script>
 <body>
 
   <div class="background-orbs" aria-hidden="true">
@@ -149,28 +213,37 @@
     <span></span>
   </div>
 
-  <header>
-    <nav>
-      <a href="index.html" class="logo">Gee's Lounge</a>
+  <header class="site-header hamnet-header">
 
-      <button
-        class="menu-btn"
-        type="button"
-        aria-label="Open navigation menu"
-        aria-expanded="false"
-        onclick="toggleMenu()"
-      >
-        ☰
-      </button>
+  <h1 class="logo">Gee's Lounge</h1>
 
-      <div class="nav-links" id="navLinks">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="blog.html">The Journal</a>
-        <a href="contact.html">Contact</a>
-      </div>
-    </nav>
-  </header>
+  <button
+    class="menu-btn"
+    type="button"
+    aria-label="Open navigation menu"
+    onclick="toggleMenu()"
+  >
+    ☰
+  </button>
+
+  <nav class="nav-links" id="navLinks">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="blog.html">The Journal</a>
+    <a href="books.html">Reading Room</a>
+    <a href="contact.html">Contact</a>
+
+    <button
+      class="toggle-btn"
+      type="button"
+      aria-label="Switch colour theme"
+      onclick="toggleTheme()"
+    >
+      ☾
+    </button>
+  </nav>
+
+</header>
 
   <main class="article-page">
 
