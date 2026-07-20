@@ -468,6 +468,23 @@
   object-position: center;
   border-radius: 18px;
 }
+
+.reality-bites-card-image {
+    overflow: hidden;
+    padding: 0;
+}
+
+.reality-bites-card-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    border-radius: 18px;
+}
     .article-card-content {
       display: flex;
       flex-direction: column;
@@ -1055,7 +1072,11 @@
   data-search="reality bites film cinema 1990s nineties nostalgia troy lelaina romance communication dialogue subtext friendship authenticity"
   data-category="reflection"
 >
-  <div class="small-article-visual" aria-hidden="true">📼</div>
+  <div class="small-article-visual reality-bites-card-image">
+    <img
+        src="images/reality-bites.jpg"
+        alt="Reality Bites"
+        >
 
   <div class="article-card-content">
     <div class="article-topline">
