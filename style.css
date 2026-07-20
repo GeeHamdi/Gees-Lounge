@@ -1557,9 +1557,3 @@ body.light-mode .article-featured-image {
   transform: scale(1.035);
   filter: brightness(1.06);
 }
-
-@media (max-width: 650px) {
-  .journal-card-image {
-    border-radius: 14px;
-  }
-}
