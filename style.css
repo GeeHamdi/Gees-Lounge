@@ -1569,26 +1569,50 @@ body.light-mode .article-featured-image {
 /* CRIME AND PUNISHMENT FEATURE CARD */
 
 .crime-card {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 36px;
+  align-items: center;
   margin-top: 28px;
+  padding: 38px;
+}
+
+.crime-card .hero-article-content {
+  min-width: 0;
+}
+
+.crime-card h3 {
+  margin: 18px 0;
+  font-size: clamp(34px, 4vw, 52px);
+  line-height: 1.08;
+}
+
+.crime-card p {
+  font-size: 18px;
+  line-height: 1.7;
 }
 
 .crime-card-image {
-  min-height: 260px;
+  width: 100%;
+  height: 300px;
   overflow: hidden;
   border-radius: 22px;
-  background: rgba(20, 8, 35, 0.8);
 }
 
 .crime-card-image img {
   display: block;
   width: 100%;
   height: 100%;
-  min-height: 260px;
   object-fit: cover;
   object-position: center 35%;
 }
 
-.crime-card h3 {
-  font-size: clamp(32px, 4vw, 48px);
-  line-height: 1.08;
+@media (max-width: 800px) {
+  .crime-card {
+    grid-template-columns: 1fr;
+  }
+
+  .crime-card-image {
+    height: 260px;
+  }
 }
