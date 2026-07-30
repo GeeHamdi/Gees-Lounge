@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Crime and Punishment: The Weight of a Thought | Gee's Lounge</title>
+
+  <meta
+    name="description"
+    content="A personal reflection on Dostoevsky's Crime and Punishment, guilt, conscience, morality, and the architecture of the human mind."
+  />
+
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    .article-page {
+      width: min(940px, calc(100% - 40px));
+      margin: 55px auto 90px;
+    }
+
+    .article-hero {
+      position: relative;
+      overflow: hidden;
+      padding: 65px 58px;
+
+      background:
+        radial-gradient(circle at 80% 20%, rgba(139,92,246,.22), transparent 30%),
+        radial-gradient(circle at 15% 85%, rgba(192,132,252,.22), transparent 30%),
+        linear-gradient(135deg,
+          rgba(139,92,246,.22),
+          rgba(255,255,255,.06));
+
+      border:1px solid rgba(255,255,255,.18);
+      border-radius:32px;
+      backdrop-filter:blur(14px);
+      box-shadow:0 25px 70px rgba(10,2,25,.28);
+    }
+
+    .article-label{
+      color:#c084fc;
+      font:700 13px Arial,sans-serif;
+      letter-spacing:2.5px;
+      text-transform:uppercase;
+      margin-bottom:18px;
+    }
+
+    .article-hero h1{
+      color:#f7efff;
+      font-size:clamp(45px,7vw,76px);
+      line-height:1.05;
+      margin-bottom:22px;
+    }
+
+    .article-subtitle{
+      color:#e9d5ff;
+      font-size:21px;
+      line-height:1.7;
+      max-width:760px;
+    }
+
+    .article-meta{
+      display:flex;
+      gap:22px;
+      flex-wrap:wrap;
+      margin-top:30px;
+      color:rgba(233,213,255,.72);
+      font:14px Arial,sans-serif;
+    }
+
+    .article-cover-image{
+      display:block;
+      width:min(730px,92%);
+      margin:45px auto 0;
+      border-radius:24px;
+      object-fit:contain;
+      box-shadow:0 22px 60px rgba(10,2,25,.3);
+      border:1px solid rgba(255,255,255,.18);
+    }
+
+    .article-body{
+      width:min(790px,100%);
+      margin:70px auto 0;
+    }
+
+    .article-body p{
+      margin:0 0 29px;
+      color:#f3e8ff;
+      font-family:Georgia,serif;
+      font-size:19px;
+      line-height:1.92;
+    }
+
+    .article-body > p:first-child::first-letter{
+      float:left;
+      margin:10px 12px 0 0;
+      font-size:78px;
+      font-weight:bold;
+      line-height:.72;
+      color:#c084fc;
+    }
+
+    .article-body em{
+      color:#f7efff;
+    }
+
+    .article-emphasis{
+      margin:48px 0;
+      padding:34px 38px;
+
+      background:linear-gradient(
+        135deg,
+        rgba(139,92,246,.16),
+        rgba(255,255,255,.05));
+
+      border-left:4px solid #c084fc;
+      border-radius:22px;
+
+      color:#f7efff;
+      font-style:italic;
+      font-size:clamp(23px,3vw,30px);
+      line-height:1.6;
+    }
+
+    .relationship-heading{
+      margin:60px 0 28px;
+      color:#f7efff;
+      font-size:clamp(34px,5vw,50px);
+    }
+
+    .article-navigation{
+      display:flex;
+      justify-content:space-between;
+      margin:65px auto 0;
+      width:min(790px,100%);
+    }
+
+    .article-navigation a{
+      color:#d8b4fe;
+      text-decoration:none;
+      font:700 15px Arial,sans-serif;
+    }
+
+    .article-navigation a:hover{
+      color:#c084fc;
+    }
+
+    body.light-mode .article-hero{
+      background:rgba(255,255,255,.82);
+    }
+
+    body.light-mode .article-body p,
+    body.light-mode .article-hero h1,
+    body.light-mode .relationship-heading,
+    body.light-mode .article-emphasis{
+      color:#2e1065;
+    }
+
+    body.light-mode .article-subtitle{
+      color:#3b0764;
+    }
+
+    @media(max-width:650px){
+
+      .article-page{
+        width:calc(100% - 28px);
+      }
+
+      .article-hero{
+        padding:42px 28px;
+      }
+
+      .article-hero h1{
+        font-size:45px;
+      }
+
+      .article-body p{
+        font-size:17px;
+      }
+
+      .article-navigation{
+        flex-direction:column;
+        gap:20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="site-header">
+    <h1 class="logo">Gee's Lounge</h1>
+
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+    <nav class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="blog.html" class="active">The Journal</a>
+        <a href="books.html">Reading Room</a>
+        <a href="contact.html">Contact</a>
+
+        <button class="toggle-btn" onclick="toggleTheme()">☾</button>
+    </nav>
+</header>
+
+<main class="article-page">
+
+<article>
+
+<header class="article-hero">
+
+<p class="article-label">
+Novel · Psychology · Philosophy
+</p>
+
+<h1>
+Crime and Punishment: The Weight of a Thought
+</h1>
+
+<p class="article-subtitle">
+Why Dostoevsky's masterpiece is less about murder than it is about conscience, guilt, and the impossible burden of living with oneself.
+</p>
+
+<div class="article-meta">
+<span>By Gee</span>
+<span>10 min read</span>
+<span>The Journal</span>
+</div>
+
+</header>
+
+<img
+src="images/crime-and-punishment.jpg"
+alt="Crime and Punishment by Fyodor Dostoevsky"
+class="article-cover-image">
+
+<div class="article-body">
+
+<p>
+There are books that tell stories, and there are books that quietly dismantle the way we understand ourselves. <em>Crime and Punishment</em> belongs firmly to the latter. I finished it with the strange feeling that I had not merely followed Raskolnikov's descent into guilt but had witnessed a relentless examination of the human mind stripped of every comforting illusion.
+</p>
+
+<p>
+What struck me most was Dostoevsky's refusal to make crime the central subject of the novel. The murder happens relatively early. Everything that follows is not about whether Raskolnikov will be caught, but whether he can continue living with himself. The real punishment is psychological long before it is legal. It is an exploration of conscience as something inescapable, a force that persists even when reason insists it should remain silent.
+</p>
+
+<div class="article-emphasis">
+The real punishment is not prison. It is the slow collapse of every illusion that allows a person to live with themselves.
+</div>
+
+<p>
+Raskolnikov's theory that extraordinary individuals possess the moral right to transgress conventional ethics is, on the surface, intellectually provocative. Yet Dostoevsky demonstrates how quickly abstract philosophy collapses when confronted with lived reality. Ideas that appear coherent in isolation become unbearable once they demand real blood, real suffering, and real consequences.
+</p>
+
+<p>
+Perhaps what fascinated me most was how modern the novel feels despite having been written more than a century and a half ago. Raskolnikov's isolation, obsessive overthinking, oscillation between grandiosity and self-loathing, and desperate attempts to rationalize his actions all feel remarkably contemporary.
+</p>
+
+<h2 class="relationship-heading">
+Language, Guilt, and What Remains Unsaid
+</h2>
+
+<p>
+As a linguist, I found myself paying close attention to the conversations rather than the events themselves. So much of the novel unfolds through implication rather than direct confession. Characters circle around truths they cannot articulate, revealing themselves through hesitation, contradiction, and silence.
+</p>
+
+<p>
+The relationship between Raskolnikov and Porfiry Petrovich is one of the novel's greatest achievements. Their exchanges resemble an intricate game of chess in which every question carries multiple meanings. Porfiry rarely accuses outright. Instead, he patiently creates conversations in which Raskolnikov gradually exposes himself.
+</p>
+
+<div class="article-emphasis">
+Dostoevsky understands that language is rarely a transparent vehicle for thought. More often, it becomes a battlefield where guilt, fear, pride, and love struggle for expression.
+</div>
+
+<p>
+Equally compelling is the role of Sonia. She never defeats Raskolnikov through argument. Instead, she offers him something his philosophy cannot provide: compassion. Her presence suggests that redemption is achieved not through intellectual victory but through vulnerability and human connection.
+</p>
+
+<p>
+If I have one reservation, it is that the novel occasionally lingers in philosophical exposition. Yet even these passages reveal the fragile intellectual scaffolding upon which Raskolnikov has constructed his identity.
+</p>
+
+<p>
+What lingers after the final page is not the murder itself but the unsettling realization that our greatest conflicts rarely occur between ourselves and society. They occur within ourselves. <em>Crime and Punishment</em> argues that conscience is not merely a social construct or a legal inconvenience. It is an essential part of what it means to be human.
+</p>
+
+<p>
+Few novels have explored the architecture of guilt with such psychological precision. Fewer still have done so while remaining deeply compassionate toward even their most troubled characters. That is what makes <em>Crime and Punishment</em> not simply a masterpiece of Russian literature, but one of the most penetrating studies of the human condition ever written.
+</p>
+
+</div>
+
+<nav class="article-navigation">
+
+<a href="blog.html">
+← Back to The Journal
+</a>
+
+<a href="index.html">
+Return to the Lounge →
+</a>
+
+</nav>
+
+</article>
+
+</main>
+
+<footer>
+<p>© 2026 Gee's Lounge</p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
