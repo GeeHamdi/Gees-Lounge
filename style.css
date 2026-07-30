@@ -1615,4 +1615,62 @@ body.light-mode .article-featured-image {
   .crime-card-image {
     height: 260px;
   }
+}/* FORCE CRIME CARD LAYOUT */
+
+.hero-article.crime-card {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) 360px !important;
+  gap: 35px !important;
+  align-items: center !important;
+  padding: 38px !important;
+  overflow: hidden !important;
+}
+
+.hero-article.crime-card .hero-article-content {
+  width: 100% !important;
+  min-width: 0 !important;
+}
+
+.hero-article.crime-card h3 {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 18px 0 !important;
+  font-size: 42px !important;
+  line-height: 1.08 !important;
+  overflow-wrap: normal !important;
+  word-break: normal !important;
+}
+
+.hero-article.crime-card p {
+  width: 100% !important;
+  max-width: none !important;
+  font-size: 18px !important;
+  line-height: 1.65 !important;
+}
+
+.hero-article.crime-card .crime-card-image {
+  width: 360px !important;
+  height: 260px !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+  border-radius: 20px !important;
+}
+
+.hero-article.crime-card .crime-card-image img {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 0 !important;
+  object-fit: cover !important;
+  object-position: center 32% !important;
+}
+
+@media (max-width: 800px) {
+  .hero-article.crime-card {
+    grid-template-columns: 1fr !important;
+  }
+
+  .hero-article.crime-card .crime-card-image {
+    width: 100% !important;
+    height: 230px !important;
+  }
 }
