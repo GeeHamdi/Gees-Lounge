@@ -1594,7 +1594,7 @@ body.light-mode .article-featured-image {
 
 .crime-card-image {
   width: 100%;
-  height: 300px;
+  height: 240px;
   overflow: hidden;
   border-radius: 22px;
 }
@@ -1613,7 +1613,7 @@ body.light-mode .article-featured-image {
   }
 
   .crime-card-image {
-    height: 260px;
+    height: 240px;
   }
 }/* FORCE CRIME CARD LAYOUT */
 
