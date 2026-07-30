@@ -1550,13 +1550,14 @@ body.light-mode .article-featured-image {
   border-radius: 18px;
   text-decoration: none;
 }
-
 .journal-card-image img {
   display: block;
   width: 100%;
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
+  height: 320px;
+  object-fit: contain;
   object-position: center;
+  background: rgba(20, 8, 35, 0.95);
+  padding: 12px;
   transition:
     transform 0.45s ease,
     filter 0.45s ease;
