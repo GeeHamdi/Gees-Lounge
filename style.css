@@ -1571,26 +1571,27 @@ body.light-mode .article-featured-image {
 
 .crime-banner-card {
     display: block;
-    width: min(100%, 780px);
-    margin: 25px auto;
+    width: 100%;
+    max-width: 930px;   /* same width as the featured card */
+    margin: 35px auto;
     overflow: hidden;
 
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    border: 1px solid rgba(255,255,255,.18);
     border-radius: 28px;
 
-    text-decoration: none;
+    box-shadow: 0 22px 55px rgba(10,2,25,.25);
 
-    box-shadow: 0 22px 55px rgba(10, 2, 25, 0.25);
-
-    transition:
-        transform .3s ease,
-        box-shadow .3s ease;
+    transition: transform .3s ease, box-shadow .3s ease;
+}
 }
 
 .crime-banner-card img {
     display: block;
     width: 100%;
-    height: auto;
+    height: 455px;      /* same visual height as the card above */
+    object-fit: cover;
+    object-position: center;
+}
 }
 
 .crime-banner-card:hover {
