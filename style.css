@@ -1569,27 +1569,25 @@ body.light-mode .article-featured-image {
 
 /* CRIME AND PUNISHMENT FEATURE IMAGE */
 
-.crime-feature-image {
+.crime-banner-card {
   display: block;
   width: 100%;
-  margin-bottom: 24px;
+  margin: 25px 0;
   overflow: hidden;
-  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 29px;
   text-decoration: none;
+  transition: transform 0.3s ease;
 }
 
-.crime-feature-image img {
-display: block;
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    object-position: center top;
-    transition:
-        transform 0.45s ease,
-        filter 0.45s ease;
+.crime-banner-card img {
+  display: block;
+  width: 100%;
+  height: 430px;
+  object-fit: cover;
+  object-position: center;
 }
-}
-.crime-feature-image:hover img {
-  transform: scale(1.035);
-  filter: brightness(1.06);
+
+.crime-banner-card:hover {
+  transform: translateY(-7px);
 }
